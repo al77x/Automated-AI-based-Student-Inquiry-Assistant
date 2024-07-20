@@ -1,0 +1,78 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #5dc284, #1c819e);
+}
+
+.login-container {
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-family: "ABeeZee";
+}
+
+.login-container p {
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background: #f7f7f7;
+  padding: 20px 40px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.login-box .forgot-password {
+  display: block;
+  margin: 10px 0;
+  color: #6aa84f;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.login-box .forgot-password span {
+  color: #1c819e;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6aa84f;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #5c9443;
+}
