@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../Login.css";
+import "./Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,8 +9,6 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add authentication logic here
-    // If authentication is successful, navigate to the dashboard
     navigate("/dashboard");
   };
 
@@ -37,6 +35,8 @@ const Login = () => {
               required
             />
             <a href="#" className="forgot-password">
+              {" "}
+              {/* add forgot password page */}
               forgot your password, <span>please click here</span>
             </a>
             <button type="submit">Log in</button>
