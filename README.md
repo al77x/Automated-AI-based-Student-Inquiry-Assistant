@@ -16,11 +16,13 @@ hello_world()
 ```
 ## To-Do
 ## Team
-Alessandrae Jan Abelita
-Botong Chen
-Andrew Jiahua Liu
-Joshua Winson Jacob
-Adreesh Joarder 
+<ul>
+<li>Alessandrae Jan Abelita</li>
+<li>Botong Chen</li>
+<li>Andrew Jiahua Liu</li>
+<li>Joshua Winson Jacob</li>
+<li>Adreesh Joarder</li>
+</ul>
 ## Contact
 <p align="left">
 Andrew Jiahua Liu
