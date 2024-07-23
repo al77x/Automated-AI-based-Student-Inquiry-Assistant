@@ -8,6 +8,12 @@ The objective of the project is to develop an AI-based Student Inquiry Assistant
 - System Architecture Documentation – Documentation of architecture, system design decisions and drafts with a guide and detailed manuals of usage of the system for future needs for maintenance or development.  
 ## Features 
 ## Documentation
+ ```python
+def hello_world():
+    print("Hello, World!")
+
+hello_world()
+```
 ## To-Do
 ## Team
 Alessandrae Jan Abelita
@@ -16,4 +22,13 @@ Andrew Jiahua Liu
 Joshua Winson Jacob
 Adreesh Joarder 
 ## Contact
+<p align="left">
+Andrew Jiahua Liu
+<!-- HTML Button -->
+<p align="left">
+  <a href="mailto:mzy4040@autuni.ac.nz">
+    <img src="https://img.shields.io/badge/Email-Contact%20Me-blue?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Email Me">
+  </a>
+</p>
+
 ## License
