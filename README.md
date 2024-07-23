@@ -7,6 +7,17 @@ The objective of the project is to develop an AI-based Student Inquiry Assistant
 - Integration with LMS (Learning Management System) and databases – We can connect it to the university’s LMS which is Canvas, to allow the AI system to access course materials and resources for its responses to students. There will be both a front-end and back-end infrastructure that will support the AI model in the storage of data and handling of the database.  
 - System Architecture Documentation – Documentation of architecture, system design decisions and drafts with a guide and detailed manuals of usage of the system for future needs for maintenance or development.  
 ## Features 
+<ol>
+<li>Natural Language Processing (NLP)</li>
+<li>24/7 Availability</li>
+<li>Real-time Responses</li>
+<li>Multi-channel Support</li>
+<li>Feedback Collection</li>
+<li>FAQ Handling</li>
+<li>Analytics and Reporting</li>
+</ol>
+
+Continuously learns and improves from interactions to provide better responses over time.
 ## Documentation
  ```python
 def hello_world():
