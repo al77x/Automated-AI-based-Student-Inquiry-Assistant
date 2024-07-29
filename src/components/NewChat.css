@@ -1,0 +1,12 @@
+.new-chat-page {
+  padding: 20px;
+}
+
+.new-chat-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.new-chat-page p {
+  font-size: 1.2em;
+}

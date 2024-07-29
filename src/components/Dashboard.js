@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 import "./Header.css";
 import "./DashboardContent.css";
@@ -14,20 +15,24 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
         <h1>AASIA</h1>
         <p>Automated AI-based Student Inquiry Assistant</p>
-        <button className="new-chat-btn">New Chat</button>
+        <button className="new-chat-btn" onClick={() => navigate("/newchat")}>
+          New Chat
+        </button>
       </div>
       <nav className="sidebar-nav">
         <ul>
-          <li>
+          <li onClick={() => navigate("/dashboard")}>
             <DashboardIcon />
             Dashboard
           </li>
-          <li>
+          <li onClick={() => navigate("/newchat")}>
             <ChatIcon />
             Chatbot
           </li>
