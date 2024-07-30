@@ -2,7 +2,6 @@ import React from "react";
 import "./Sidebar.css";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ChatIcon from "@mui/icons-material/Chat";
-import HomeIcon from "@mui/icons-material/Home";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FeedbackIcon from "@mui/icons-material/Feedback";
@@ -24,10 +23,6 @@ const Sidebar = () => {
           <li>
             <ChatIcon />
             Chatbot
-          </li>
-          <li>
-            <HomeIcon />
-            Homepage
           </li>
           <li>
             <HelpIcon />

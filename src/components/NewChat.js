@@ -1,17 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewChat.css";
-import GridViewIcon from "@mui/icons-material/GridView";
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import ChatIcon from "@mui/icons-material/Chat";
-import HelpIcon from "@mui/icons-material/Help";
-import FeedbackIcon from "@mui/icons-material/Feedback";
 
 const NewChat = () => {
   const navigate = useNavigate();
+
+  const recentChats = [
+    { id: 1, text: "In which week will we be...", time: "YESTERDAY" },
+    { id: 2, text: "If I did an RPG game could...", time: "YESTERDAY" },
+    { id: 3, text: "Lab solution posted", time: "LAST WEEK" },
+    { id: 4, text: "Hash set or Hash map?", time: "LAST MONTH" },
+    { id: 5, text: "Can I use JFrame Form...", time: "LAST MONTH" },
+  ];
 
   return (
     <div className="new-chat-page">
@@ -22,35 +26,15 @@ const NewChat = () => {
           <button className="new-chat-btn">New Chat</button>
         </div>
         <nav className="sidebar-nav">
-          <ul>
-            <li onClick={() => navigate("/dashboard")}>
-              <DashboardIcon />
-              Dashboard
-            </li>
-            <li>
-              <GridViewIcon />
-              Data Center
-            </li>
-            <li>
-              <ChatIcon />
-              Chatbot
-            </li>
-            <li>
-              <HelpIcon />
-              Frequently-Asked Questions
-            </li>
-          </ul>
+          {recentChats.map((chat) => (
+            <div key={chat.id} className="chat-history">
+              <p>{chat.text}</p>
+              <span>{chat.time}</span>
+            </div>
+          ))}
         </nav>
         <div className="sidebar-footer">
           <ul>
-            <li>
-              <SettingsIcon />
-              Settings
-            </li>
-            <li>
-              <FeedbackIcon />
-              Feedback
-            </li>
             <li>Help Center</li>
             <li>Privacy</li>
             <li>Terms of Service</li>
@@ -59,18 +43,11 @@ const NewChat = () => {
       </aside>
       <main className="main-content">
         <header className="header">
-          <h2>Welcome Alice Smith</h2>
-          <div className="header-info">
-            <div className="time-date">
-              <div className="time">10:45</div>
-              <div className="date">11/7/2024</div>
-            </div>
-            <div className="header-icons">
-              <GridViewIcon />
-              <SettingsIcon />
-              <NotificationsIcon />
-              <AccountCircleIcon />
-            </div>
+          <div className="header-icons">
+            <DashboardIcon onClick={() => navigate("/dashboard")} />
+            <SettingsIcon />
+            <NotificationsIcon />
+            <AccountCircleIcon />
           </div>
         </header>
         <div className="chat-window">
@@ -94,7 +71,7 @@ const NewChat = () => {
                 <br />
                 Furthermore, this has been mentioned in Lecture slides on Week
                 1: Introduction to COMP603. I have attached the links on the
-                bottom to see this."
+                right side to see this."
               </p>
               <div className="links">
                 <button>Lecture slides</button>
