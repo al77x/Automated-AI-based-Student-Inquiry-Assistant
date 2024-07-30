@@ -42,7 +42,7 @@ const NewChat = () => {
         </div>
       </aside>
       <main className="main-content">
-        <header className="header">
+        <header className="new-chat-header">
           <div className="header-icons">
             <DashboardIcon onClick={() => navigate("/dashboard")} />
             <SettingsIcon />

@@ -81,7 +81,7 @@
   background-color: #f8f8f8;
 }
 
-.header {
+.new-chat-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
