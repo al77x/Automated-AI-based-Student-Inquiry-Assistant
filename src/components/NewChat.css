@@ -47,6 +47,14 @@
 
 .chat-history {
   margin-bottom: 20px;
+  padding: 10px;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.chat-history:hover {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
 }
 
 .chat-history p {
