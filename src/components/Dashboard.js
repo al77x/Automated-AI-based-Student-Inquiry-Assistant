@@ -6,11 +6,9 @@ import "./DashboardContent.css";
 import "./Dashboard.css";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ChatIcon from "@mui/icons-material/Chat";
-import HomeIcon from "@mui/icons-material/Home";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import GridViewIcon from "@mui/icons-material/GridView";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
@@ -35,10 +33,6 @@ const Sidebar = () => {
           <li onClick={() => navigate("/newchat")}>
             <ChatIcon />
             Chatbot
-          </li>
-          <li>
-            <HomeIcon />
-            Homepage
           </li>
           <li>
             <HelpIcon />
@@ -75,7 +69,7 @@ const Header = () => {
           <div className="date">11/7/2024</div>
         </div>
         <div className="header-icons">
-          <GridViewIcon />
+          <DashboardIcon />
           <SettingsIcon />
           <NotificationsIcon />
           <AccountCircleIcon />
