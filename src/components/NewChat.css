@@ -129,7 +129,7 @@
   max-width: 60%;
 }
 
-.chat-message.response .message-content {
+.chat-message.bot .message-content {
   background-color: #ffffff;
   padding: 10px;
   border-radius: 10px;

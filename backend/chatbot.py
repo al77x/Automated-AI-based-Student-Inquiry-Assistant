@@ -1,17 +1,22 @@
 import requests
 
-RAPIDAPI_KEY = "4f6dd8f1e1msh0777a61fa36f1ddp14de5ejsn753c1f2c4a86"
+AZURE_API_KEY = "a4cc25f9f1264104b8d94854f308b161" 
+AZURE_ENDPOINT = "https://aasia.openai.azure.com/" 
+DEPLOYMENT_NAME = "aasia" 
 
 def get_response(user_message):
-    url = "https://infinite-gpt.p.rapidapi.com/infinite-gpt"
+    url = f"{AZURE_ENDPOINT}/openai/deployments/{DEPLOYMENT_NAME}/chat/completions?api-version=2023-03-15-preview"
     headers = {
         "Content-Type": "application/json",
-        "X-RapidAPI-Host": "infinite-gpt.p.rapidapi.com",
-        "X-RapidAPI-Key": RAPIDAPI_KEY
+        "api-key": AZURE_API_KEY,
     }
     payload = {
-        "query": user_message,
-        "sysMsg": "You are a friendly Chatbot."
+        "messages": [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": user_message}
+        ],
+        "max_tokens": 1000,  
+        "temperature": 0.7
     }
 
     try:
@@ -21,7 +26,7 @@ def get_response(user_message):
 
         if response.status_code == 200:
             response_json = response.json()
-            return response_json.get("msg", "Sorry, I couldn't process your request at the moment.")
+            return response_json["choices"][0]["message"]["content"]
         else:
             return f"An error occurred: {response.status_code} - {response.text}"
     except Exception as e:

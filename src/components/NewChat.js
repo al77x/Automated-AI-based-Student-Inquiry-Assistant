@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewChat.css";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -8,14 +8,57 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const NewChat = () => {
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const [chatHistory, setChatHistory] = useState([]);
 
-  const recentChats = [
-    { id: 1, text: "In which week will we be...", time: "YESTERDAY" },
-    { id: 2, text: "If I did an RPG game could...", time: "YESTERDAY" },
-    { id: 3, text: "Lab solution posted", time: "LAST WEEK" },
-    { id: 4, text: "Hash set or Hash map?", time: "LAST MONTH" },
-    { id: 5, text: "Can I use JFrame Form...", time: "LAST MONTH" },
-  ];
+  const handleInputChange = (e) => {
+    setMessage(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  };
+
+  const sendMessage = async (message) => {
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log("Response from backend: ", data.response);
+      return data.response;
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+      return "Sorry, I couldn't process your request at the moment.";
+    }
+  };
+
+  const handleSend = async () => {
+    if (message.trim() === "") return;
+
+    const newChatHistory = [...chatHistory, { user: "student", text: message }];
+    setChatHistory(newChatHistory);
+
+    const response = await sendMessage(message);
+    if (response) {
+      setChatHistory([...newChatHistory, { user: "bot", text: response }]);
+    } else {
+      setChatHistory([
+        ...newChatHistory,
+        { user: "bot", text: "Sorry, I couldn't understand that." },
+      ]);
+    }
+    setMessage("");
+  };
 
   return (
     <div className="new-chat-page">
@@ -23,21 +66,18 @@ const NewChat = () => {
         <div className="sidebar-header">
           <h1>AASIA</h1>
           <p>Automated AI-based Student Inquiry Assistant</p>
-          <button className="new-chat-btn">New Chat</button>
+          <button className="new-chat-btn" onClick={() => navigate("/newchat")}>
+            New Chat
+          </button>
         </div>
         <nav className="sidebar-nav">
-          {recentChats.map((chat) => (
-            <div key={chat.id} className="chat-history">
-              <p>{chat.text}</p>
-              <span>{chat.time}</span>
-            </div>
-          ))}
+          {/* add more sidebar content can be added here */}
         </nav>
         <div className="sidebar-footer">
           <ul>
-            <li>Help Center</li>
-            <li>Privacy</li>
-            <li>Terms of Service</li>
+            <li onClick={() => navigate("/help")}>Help Center</li>
+            <li onClick={() => navigate("/privacy")}>Privacy</li>
+            <li onClick={() => navigate("/terms")}>Terms of Service</li>
           </ul>
         </div>
       </aside>
@@ -51,38 +91,26 @@ const NewChat = () => {
           </div>
         </header>
         <div className="chat-window">
-          <div className="chat-message student">
-            <div className="message-content">
-              <p>How to install Netbeans on my personal computer?</p>
-              <span className="message-time">08:16 AM</span>
-            </div>
-          </div>
-          <div className="chat-message response">
-            <div className="message-content">
-              <p>
-                This question has been answered by your lecturer in the
-                discussion forum:
-                <br />
-                "I have already provided the download link, please find it from
-                the blackboard - lecture notes - Week 1 - resources. Once you
-                click that link, and you can see the download page, click the
-                download button of Java EE. You also need to install JDK 8,
-                please refer to the link under the resources.
-                <br />
-                Furthermore, this has been mentioned in Lecture slides on Week
-                1: Introduction to COMP603. I have attached the links on the
-                right side to see this."
-              </p>
-              <div className="links">
-                <button>Lecture slides</button>
-                <button>Discussion Forum</button>
+          {chatHistory.map((chat, index) => (
+            <div key={index} className={`chat-message ${chat.user}`}>
+              <div className="message-content">
+                <p>{chat.text}</p>
+                <span className="message-time">
+                  {new Date().toLocaleTimeString()}
+                </span>
               </div>
             </div>
-          </div>
+          ))}
         </div>
         <footer className="footer">
-          <input type="text" placeholder="Reply ..." />
-          <button>Send</button>
+          <input
+            type="text"
+            value={message}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Type your message"
+          />
+          <button onClick={handleSend}>Send</button>
         </footer>
       </main>
     </div>
