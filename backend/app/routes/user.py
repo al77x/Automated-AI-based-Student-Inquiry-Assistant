@@ -1,6 +1,6 @@
 # coding:utf-8
 from ..base import base
-from ..models import User, Organization, Role, OnLine
+from ..models import User
 from flask import render_template, request
 from flask import g, jsonify
 import hashlib
@@ -34,19 +34,19 @@ def grant_user_role():
 
     return jsonify({'code': 200, 'msg': '操作成功'})
 
-@login_required
-def record_login_history(type):
-    online = OnLine()
-    online.ID = str(uuid.uuid4())
-    online.LOGINNAME = current_user.LOGINNAME
-    online.IP = request.remote_addr
-    online.TYPE = type
-    db.session.add(online)
+# @login_required
+# def record_login_history(type):
+#     online = OnLine()
+#     online.ID = str(uuid.uuid4())
+#     online.LOGINNAME = current_user.LOGINNAME
+#     online.IP = request.remote_addr
+#     online.TYPE = type
+#     db.session.add(online)
 
 @base.route('/logout', methods=['POST'])
 @login_required
 def do_logout():
-    record_login_history(0)
+    #record_login_history(0)
     logout_user()
     return jsonify({'success': True})
 
@@ -62,7 +62,7 @@ def do_login():
         #MD5加密后的内容同数据库密码比较
         if md.hexdigest() == user.PWD:
             login_user(user)
-            record_login_history(1)
+            #record_login_history(1)
             return jsonify({'msg': '登录成功~', 'code': 200, 'url': '/', 'token': str(uuid.uuid4())})
     return jsonify({'msg': '登录失败,账号密码错误~', 'code': 500})
 

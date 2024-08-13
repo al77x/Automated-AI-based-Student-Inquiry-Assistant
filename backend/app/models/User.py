@@ -6,13 +6,7 @@ from datetime import datetime
 def load_user(user_id):
     return User.query.filter(User.ID == user_id).first()
 
-user_organization_table = db.Table('SYUSER_SYORGANIZATION', db.Model.metadata
-                                   , db.Column('SYUSER_ID', db.String, db.ForeignKey('SYUSER.ID'))
-                                   , db.Column('SYORGANIZATION_ID', db.String, db.ForeignKey('SYORGANIZATION.ID')))
 
-user_role_table = db.Table('SYUSER_SYROLE', db.Model.metadata
-                           , db.Column('SYUSER_ID', db.String, db.ForeignKey('SYUSER.ID'))
-                           , db.Column('SYROLE_ID', db.String, db.ForeignKey('SYROLE.ID')))
 
 class User(db.Model, UserMixin):
     __tablename__ = 'SYUSER'
@@ -30,31 +24,23 @@ class User(db.Model, UserMixin):
     PHONENUMBER = db.Column(db.String(11))
     STATUS = db.Column(db.String(10))
 
-    organizations = db.relationship('Organization',
-                                    secondary=user_organization_table,
-                                    backref=db.backref('users', lazy='dynamic'),)
-
-    roles = db.relationship('Role',
-                            secondary=user_role_table,
-                            backref=db.backref('users', lazy='dynamic'),
-                            lazy="dynamic")
 
     def get_id(self):
         return str(self.ID)
 
-    def have_permission(self, url):
-        permissions = []
-        for role in self.roles:
-            permissions.extend([resource for resource in role.resources])
+    # def have_permission(self, url):
+    #     permissions = []
+    #     for role in self.roles:
+    #         permissions.extend([resource for resource in role.resources])
 
-        if filter(lambda x: x.URL == url, permissions):
-            return True
+    #     if filter(lambda x: x.URL == url, permissions):
+    #         return True
 
-        permissions = []
-        for organization in self.organizations:
-            permissions.extend([resource for resource in organization.resources])
+    #     permissions = []
+    #     for organization in self.organizations:
+    #         permissions.extend([resource for resource in organization.resources])
 
-        return filter(lambda x: x.NAME == url, permissions)
+    #     return filter(lambda x: x.NAME == url, permissions)
         
     def __repr__(self):
         return '<User %r>\n' %(self.NAME)
