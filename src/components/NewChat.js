@@ -77,7 +77,7 @@ const NewChat = () => {
           </button>
         </div>
         <nav className="sidebar-nav">
-          {/* Add more sidebar content can be added here */}
+          {/* TODO: Add more sidebar content can be added here */}
         </nav>
         <div className="sidebar-footer">
           <ul>
@@ -94,7 +94,6 @@ const NewChat = () => {
             <SettingsIcon />
             <NotificationsIcon />
             <AccountCircleIcon onClick={() => navigate("/profile")} />{" "}
-            {/* Navigate to profile */}
           </div>
         </header>
         <div className="chat-window">

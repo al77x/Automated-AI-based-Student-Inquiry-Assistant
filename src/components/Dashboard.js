@@ -60,7 +60,7 @@ const Sidebar = () => {
 };
 
 const Header = () => {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   return (
     <div className="header">
