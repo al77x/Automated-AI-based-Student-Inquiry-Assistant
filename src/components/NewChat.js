@@ -7,11 +7,11 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const NewChat = () => {
-  const navigate = useNavigate(); // initialise navigate
+  const navigate = useNavigate(); // Initialize navigate
   const [message, setMessage] = useState(""); // hold current message
-  const [chatHistory, setChatHistory] = useState([]); //hold chat history
+  const [chatHistory, setChatHistory] = useState([]); // hold chat history
 
-  // update message state when user types
+  // Update message state when user types
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
@@ -22,7 +22,7 @@ const NewChat = () => {
     }
   };
 
-  // function to send message to backend server
+  // Function to send message to backend server
   const sendMessage = async (message) => {
     try {
       const response = await fetch("http://127.0.0.1:5000/api/chat", {
@@ -44,20 +44,20 @@ const NewChat = () => {
     }
   };
 
-  // function to handle sending message
+  // Function to handle sending message
   const handleSend = async () => {
     if (message.trim() === "") return; // if message is empty, do nothing
 
-    // add user's message to chat history
+    // Add user's message to chat history
     const newChatHistory = [...chatHistory, { user: "student", text: message }];
     setChatHistory(newChatHistory);
 
-    // send message and get response
+    // Send message and get response
     const response = await sendMessage(message);
     if (response) {
       setChatHistory([...newChatHistory, { user: "bot", text: response }]);
     } else {
-      // add default error message if no response
+      // Add default error message if no response
       setChatHistory([
         ...newChatHistory,
         { user: "bot", text: "Sorry, I couldn't understand that." },
@@ -77,7 +77,7 @@ const NewChat = () => {
           </button>
         </div>
         <nav className="sidebar-nav">
-          {/* add more sidebar content can be added here */}
+          {/* Add more sidebar content can be added here */}
         </nav>
         <div className="sidebar-footer">
           <ul>
@@ -93,7 +93,8 @@ const NewChat = () => {
             <DashboardIcon onClick={() => navigate("/dashboard")} />
             <SettingsIcon />
             <NotificationsIcon />
-            <AccountCircleIcon />
+            <AccountCircleIcon onClick={() => navigate("/profile")} />{" "}
+            {/* Navigate to profile */}
           </div>
         </header>
         <div className="chat-window">
