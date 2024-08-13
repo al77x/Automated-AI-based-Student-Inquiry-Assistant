@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import GridViewIcon from "@mui/icons-material/GridView";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -15,7 +15,7 @@ const Header = () => {
           <div className="date">11/7/2024</div>
         </div>
         <div className="header-icons">
-          <GridViewIcon />
+          <DashboardIcon />
           <SettingsIcon />
           <NotificationsIcon />
           <AccountCircleIcon />

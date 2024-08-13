@@ -60,6 +60,8 @@ const Sidebar = () => {
 };
 
 const Header = () => {
+  const navigate = useNavigate(); // Initialize navigate
+
   return (
     <div className="header">
       <h2>Welcome Alice Smith</h2>
@@ -72,7 +74,7 @@ const Header = () => {
           <DashboardIcon />
           <SettingsIcon />
           <NotificationsIcon />
-          <AccountCircleIcon />
+          <AccountCircleIcon onClick={() => navigate("/profile")} />{" "}
         </div>
       </div>
     </div>
