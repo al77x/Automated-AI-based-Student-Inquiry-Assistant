@@ -8,7 +8,8 @@ const ProfilePage = () => {
     <div className="profile-page">
       <Sidebar />
       <div className="main-content">
-        <Header />
+        <Header showWelcomeMessage={false} />{" "}
+        {/* Disable the welcome message on the profile page */}
         <div className="profile-container">
           <div className="profile-details-header">
             <h2>User Details</h2>
@@ -37,6 +38,9 @@ const ProfilePage = () => {
               <input type="email" placeholder="alice.smith@email.com" />
               <label>Residential Address</label>
               <textarea placeholder="123 Laneway Avenue"></textarea>
+              <button type="submit" className="save-btn">
+                Save
+              </button>{" "}
             </form>
           </section>
         </div>
