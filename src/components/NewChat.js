@@ -7,11 +7,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const NewChat = () => {
-  const navigate = useNavigate(); // Initialize navigate
-  const [message, setMessage] = useState(""); // hold current message
-  const [chatHistory, setChatHistory] = useState([]); // hold chat history
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const [chatHistory, setChatHistory] = useState([]);
 
-  // Update message state when user types
   const handleInputChange = (e) => {
     setMessage(e.target.value);
   };
@@ -22,7 +21,6 @@ const NewChat = () => {
     }
   };
 
-  // Function to send message to backend server
   const sendMessage = async (message) => {
     try {
       const response = await fetch("http://127.0.0.1:5000/api/chat", {
@@ -35,35 +33,48 @@ const NewChat = () => {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-      const data = await response.json(); // get response data
-      console.log("Response from backend: ", data.response);
-      return data.response; // return response from backend
+      const data = await response.json();
+      return data.response;
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
-      return "Sorry, I couldn't process your request at the moment."; // return error message
+      return "Sorry, I couldn't process your request at the moment.";
     }
   };
 
-  // Function to handle sending message
   const handleSend = async () => {
-    if (message.trim() === "") return; // if message is empty, do nothing
+    if (message.trim() === "") return;
 
-    // Add user's message to chat history
     const newChatHistory = [...chatHistory, { user: "student", text: message }];
     setChatHistory(newChatHistory);
 
-    // Send message and get response
     const response = await sendMessage(message);
     if (response) {
       setChatHistory([...newChatHistory, { user: "bot", text: response }]);
     } else {
-      // Add default error message if no response
       setChatHistory([
         ...newChatHistory,
         { user: "bot", text: "Sorry, I couldn't understand that." },
       ]);
     }
-    setMessage(""); // clear message input
+    setMessage("");
+  };
+
+  // Function to detect and render code blocks
+  const renderText = (text) => {
+    const codeRegex = /```(.*?)```/gs;
+    const parts = text.split(codeRegex);
+
+    return parts.map((part, index) => {
+      if (index % 2 === 1) {
+        return (
+          <pre className="code-block" key={index}>
+            <code>{part}</code>
+          </pre>
+        );
+      } else {
+        return <span key={index}>{part}</span>;
+      }
+    });
   };
 
   return (
@@ -76,9 +87,7 @@ const NewChat = () => {
             New Chat
           </button>
         </div>
-        <nav className="sidebar-nav">
-          {/* TODO: Add more sidebar content can be added here */}
-        </nav>
+        <nav className="sidebar-nav"></nav>
         <div className="sidebar-footer">
           <ul>
             <li onClick={() => navigate("/help")}>Help Center</li>
@@ -99,12 +108,10 @@ const NewChat = () => {
         <div className="chat-window">
           {chatHistory.map((chat, index) => (
             <div key={index} className={`chat-message ${chat.user}`}>
-              <div className="message-content">
-                <p>{chat.text}</p>
-                <span className="message-time">
-                  {new Date().toLocaleTimeString()}
-                </span>
-              </div>
+              <div className="message-content">{renderText(chat.text)}</div>
+              <span className="message-time">
+                {new Date().toLocaleTimeString()}
+              </span>
             </div>
           ))}
         </div>
