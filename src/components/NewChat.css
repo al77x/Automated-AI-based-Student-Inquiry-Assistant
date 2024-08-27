@@ -199,3 +199,37 @@
   margin: 10px 0;
   border: 1px solid #ccc;
 }
+
+.chat-history {
+  margin-bottom: 20px;
+  padding: 10px;
+  transition: background-color 0.1s, color 0.1s;
+}
+
+.chat-history:hover {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-history p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+}
+
+.chat-history span {
+  font-size: 12px;
+  color: #c8e6c9;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  display: none;
+}
