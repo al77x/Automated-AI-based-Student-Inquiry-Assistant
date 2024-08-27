@@ -1,125 +1,169 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NewChat.css";
+
+// icon imports
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const truncateMessage = (message, maxLength = 25) => {
-  if (message.length > maxLength) {
-    return message.substring(0, maxLength) + "...";
-  }
-  return message;
+// shortens chat title to 25 characters and ends it with an ellipsis (...) if its longer
+const trimChatTitle = (message, maxLength = 25) => {
+  const ellipsis = "...";
+  return message.length > maxLength
+    ? message.slice(0, maxLength) + ellipsis
+    : message;
+};
+
+/* 
+- manage the state of the current chat session
+- handles the retrieval and storage of chat history from local storage
+*/
+const useChatSession = (initialId = null) => {
+  const [chatId, setChatId] = useState(initialId);
+  const [history, setHistory] = useState([]);
+
+  // load chat history from local storage whenever the chat ID changes
+  useEffect(() => {
+    if (!chatId) return;
+    const storedHistory = JSON.parse(localStorage.getItem(chatId)) || [];
+    setHistory(storedHistory);
+  }, [chatId]);
+  return { chatId, history, setChatId, setHistory };
 };
 
 const NewChat = () => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState("");
-  const [chatHistory, setChatHistory] = useState([]);
-  const [currentChatId, setCurrentChatId] = useState(null);
+  const [message, setMessage] = useState(""); // State for the current input message
+  const {
+    chatId: currentChatId,
+    history: chatHistory,
+    setChatId,
+    setHistory,
+  } = useChatSession();
 
-  useEffect(() => {
-    const chatId = currentChatId || new Date().getTime().toString(); // Generate a new chatId if not set
-    setCurrentChatId(chatId);
+  // handles changes in the input field and updates the message state
+  const handleInputChange = (e) => setMessage(e.target.value);
 
-    const storedHistory = JSON.parse(localStorage.getItem(chatId)) || [];
-    setChatHistory(storedHistory);
-  }, [currentChatId]);
-
-  const handleInputChange = (e) => {
-    setMessage(e.target.value);
-  };
-
+  // sends the message when "Enter" key is pressed
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      handleSend();
-    }
+    if (e.key === "Enter") handleSendMessage();
   };
 
-  const sendMessage = async (message) => {
+  // sends user's message to the backend API and retrieves the bot's response
+  const sendMessageToBot = async (userMessage) => {
     try {
+      // make a POST request to the API with the user's message
       const response = await fetch("http://127.0.0.1:5000/api/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage }),
       });
+
+      // check if response is successful
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error("Something went wrong with the API request.");
       }
+
+      // parse the response data
       const data = await response.json();
       return data.response;
     } catch (error) {
+      // log the error and return a user-friendly message
       console.error("There was a problem with the fetch operation:", error);
-      return "Sorry, I couldn't process your request at the moment.";
+      return "Oops! Something went wrong. Please try again later.";
     }
   };
 
-  const handleSend = async () => {
-    if (message.trim() === "") return;
+  /*
+- updates the chat history with the user's message and the bot's response
+- saves the chat history and metadata to local storage
+*/
+  const handleSendMessage = async () => {
+    if (message.trim() === "") return; // Ignore empty messages
 
-    const timestamp = new Date().toLocaleTimeString();
+    // record the current time for the message timestamp
+    const currentTime = new Date().toLocaleTimeString();
 
-    const newChatHistory = [
+    // update the chat history with the user's message
+    const updatedHistory = [
       ...chatHistory,
-      { user: "student", text: message, time: timestamp },
+      { user: "student", text: message, time: currentTime },
     ];
-    setChatHistory(newChatHistory);
+    setHistory(updatedHistory);
 
-    const response = await sendMessage(message);
-    const botMessage = response || "Sorry, I couldn't understand that.";
-    const updatedChatHistory = [
-      ...newChatHistory,
-      { user: "bot", text: botMessage, time: new Date().toLocaleTimeString() },
+    // send the message to the bot and get its response
+    const botResponse = await sendMessageToBot(message);
+    const finalBotMessage = botResponse || "Sorry, I didn't quite catch that.";
+
+    // update the chat history with the bot's response
+    const finalChatHistory = [
+      ...updatedHistory,
+      {
+        user: "bot",
+        text: finalBotMessage,
+        time: new Date().toLocaleTimeString(),
+      },
     ];
-    setChatHistory(updatedChatHistory);
+    setHistory(finalChatHistory);
 
-    // Check if metadata already exists
+    // save chat data to local storage
     const existingMetadata =
       JSON.parse(localStorage.getItem(`${currentChatId}-metadata`)) || {};
-
     const chatMetadata = {
-      lastMessage: existingMetadata.lastMessage || truncateMessage(message), // Store the first user message as the title
+      lastMessage: existingMetadata.lastMessage || trimChatTitle(message),
       timestamp: existingMetadata.timestamp || new Date().getTime(),
     };
 
-    // Save updated chat history and metadata to localStorage
-    localStorage.setItem(currentChatId, JSON.stringify(updatedChatHistory));
+    localStorage.setItem(currentChatId, JSON.stringify(finalChatHistory));
     localStorage.setItem(
       `${currentChatId}-metadata`,
       JSON.stringify(chatMetadata)
     );
-
-    setMessage("");
+    setMessage(""); // Clear the input field
   };
 
-  // Function to delete a chat history
+  /*
+- starts a new chat session by generating a new chat ID
+- resets the chat history and updates local storage
+*/
+  const startNewChatSession = () => {
+    const newChatId = Date.now().toString(); // Use a timestamp as the chat ID
+    setChatId(newChatId);
+    setHistory([]);
+    localStorage.setItem(
+      `${newChatId}-metadata`,
+      JSON.stringify({ lastMessage: "", timestamp: Date.now() })
+    );
+  };
+
+  // deletes a chat session by removing its data from local storage
   const handleDeleteChat = (chatId) => {
     localStorage.removeItem(chatId);
     localStorage.removeItem(`${chatId}-metadata`);
-    setCurrentChatId(null);
-    // Trigger re-render
-    setChatHistory([]);
+    setChatId(null);
+    setHistory([]);
   };
 
+  /*
+- renders text with code blocks
+- splits the text based on code block markers
+*/
   const renderText = (text) => {
-    const codeRegex = /```(.*?)```/gs;
-    const parts = text.split(codeRegex);
+    const codeRegex = /```(.*?)```/gs; // regex to find code blocks
+    const parts = text.split(codeRegex); // split the text by code blocks
 
-    return parts.map((part, index) => {
-      if (index % 2 === 1) {
-        return (
-          <pre className="code-block" key={index}>
-            <code>{part}</code>
-          </pre>
-        );
-      } else {
-        return <span key={index}>{part}</span>;
-      }
-    });
+    return parts.map((part, index) =>
+      index % 2 === 1 ? (
+        <pre className="code-block" key={index}>
+          <code>{part}</code>
+        </pre>
+      ) : (
+        <span key={index}>{part}</span>
+      )
+    );
   };
 
   return (
@@ -128,29 +172,24 @@ const NewChat = () => {
         <div className="sidebar-header">
           <h1>AASIA</h1>
           <p>Automated AI-based Student Inquiry Assistant</p>
-          <button
-            className="new-chat-btn"
-            onClick={() => {
-              setCurrentChatId(new Date().getTime().toString()); // Create new chat session
-              setChatHistory([]);
-            }}
-          >
+          <button className="new-chat-btn" onClick={startNewChatSession}>
             New Chat
           </button>
         </div>
         <nav className="sidebar-nav">
+          {/* iterate over local storage keys to list all chat sessions */}
           {Object.keys(localStorage).map((key) => {
-            if (key.endsWith("-metadata")) return null; // Skip metadata keys
+            if (key.endsWith("-metadata")) return null; // skip metadata keys
             const metadata = JSON.parse(
               localStorage.getItem(`${key}-metadata`)
             );
             const title = metadata?.lastMessage
-              ? truncateMessage(metadata.lastMessage)
+              ? trimChatTitle(metadata.lastMessage)
               : `Chat ${new Date(parseInt(key)).toLocaleDateString()}`;
             return (
               <div key={key} className="chat-history">
-                <p onClick={() => setCurrentChatId(key)}>{title}</p>
-                <span onClick={() => setCurrentChatId(key)}>
+                <p onClick={() => setChatId(key)}>{title}</p>
+                <span onClick={() => setChatId(key)}>
                   {new Date(parseInt(key)).toLocaleTimeString()}
                 </span>
                 <DeleteIcon
@@ -180,10 +219,11 @@ const NewChat = () => {
             <DashboardIcon onClick={() => navigate("/dashboard")} />
             <SettingsIcon />
             <NotificationsIcon />
-            <AccountCircleIcon onClick={() => navigate("/profile")} />{" "}
+            <AccountCircleIcon onClick={() => navigate("/profile")} />
           </div>
         </header>
         <div className="chat-window">
+          {/* Display the chat history */}
           {chatHistory.map((chat, index) => (
             <div key={index} className={`chat-message ${chat.user}`}>
               <div className="message-content">{renderText(chat.text)}</div>
@@ -197,9 +237,10 @@ const NewChat = () => {
             value={message}
             onChange={handleInputChange}
             onKeyPress={handleKeyPress}
-            placeholder="Type your message"
+            placeholder="Ask me anything... I'm here to help!"
+            autoFocus
           />
-          <button onClick={handleSend}>Send</button>
+          <button onClick={handleSendMessage}>Send</button>
         </footer>
       </main>
     </div>

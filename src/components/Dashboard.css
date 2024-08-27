@@ -1,3 +1,60 @@
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.activities,
+.recent-chats,
+.calendar,
+.notifications {
+  background-color: #e8f5e9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.activities h3,
+.recent-chats h3,
+.calendar h3,
+.notifications h3 {
+  margin-top: 0;
+}
+
+.chat-card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-widget {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.calendar-widget span {
+  background-color: #8e44ad;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.notifications ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notifications ul li {
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 .dashboard {
   display: flex;
   height: 100vh;
