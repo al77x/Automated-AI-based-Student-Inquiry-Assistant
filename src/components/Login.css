@@ -1,3 +1,4 @@
+/* resetting default margin and padding to have full height */
 body,
 html {
   margin: 0;
@@ -6,6 +7,7 @@ html {
   height: 100%;
 }
 
+/* full page container for login page */
 .login-page {
   display: flex;
   justify-content: center;
@@ -14,20 +16,24 @@ html {
   background: linear-gradient(135deg, #5dc284, #1c819e);
 }
 
+/* center the contents inside the login container */
 .login-container {
   text-align: center;
 }
 
+/* styling for the main heading */
 .login-container h1 {
   font-size: 24px;
   margin-bottom: 5px;
   font-family: "ABeeZee";
 }
 
+/* paragraph styling inside the login container */
 .login-container p {
   margin-bottom: 20px;
 }
 
+/* the main box containing the login form */
 .login-box {
   background: #f7f7f7;
   padding: 20px 40px;
@@ -36,11 +42,13 @@ html {
   border-radius: 10px;
 }
 
+/* subheading inside the login box */
 .login-box h2 {
   margin-bottom: 20px;
   font-size: 18px;
 }
 
+/* styling for input fields */
 .login-box input {
   width: 100%;
   padding: 10px;
@@ -50,6 +58,7 @@ html {
   font-size: 14px;
 }
 
+/* forgot password link styling */
 .login-box .forgot-password {
   display: block;
   margin: 10px 0;
@@ -58,10 +67,12 @@ html {
   font-size: 12px;
 }
 
+/* highlighting part of the forgot password link */
 .login-box .forgot-password span {
   color: #1c819e;
 }
 
+/* styling for submit button */
 .login-box button {
   width: 100%;
   padding: 10px;
@@ -73,6 +84,7 @@ html {
   cursor: pointer;
 }
 
+/* button hover effect */
 .login-box button:hover {
   background-color: #5c9443;
 }

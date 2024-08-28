@@ -1,22 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+
+// material  UI icons imports
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
+// header with welcome message, update later to show signed in user name
 const Header = ({ showWelcomeMessage = true }) => {
   const navigate = useNavigate();
 
   return (
     <div className="header">
+      {/* displaying current date and time, hardcoded for now */}
       {showWelcomeMessage && <h2>Welcome Alice Smith</h2>}{" "}
       <div className="header-info">
         <div className="time-date">
           <div className="time">10:45</div>
           <div className="date">11/7/2024</div>
         </div>
+
+        {/* icons for navigation and settings */}
         <div className="header-icons">
           <DashboardIcon onClick={() => navigate("/dashboard")} />
           <SettingsIcon />

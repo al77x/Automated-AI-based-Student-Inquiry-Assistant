@@ -1,3 +1,4 @@
+/* flexbox layout to space out the content */
 .header {
   display: flex;
   justify-content: space-between;
@@ -7,39 +8,47 @@
   border-bottom: 1px solid #c8e6c9;
 }
 
+/* header title */
 .header h2 {
   margin: 0;
 }
 
+/* container for additional info (time, date, icons) */
 .header-info {
   display: flex;
   align-items: center;
   margin-left: auto;
 }
 
+/* time and date container */
 .time-date {
   text-align: right;
   margin-right: 20px;
 }
 
+/* time styling */
 .time {
   font-size: 24px;
 }
 
+/* date styling */
 .date {
   font-size: 16px;
 }
 
+/* icon container */
 .header-icons {
   display: flex;
   align-items: center;
 }
 
+/* individual icons */
 .header-icons svg {
   margin-left: 10px;
   cursor: pointer;
 }
 
+/* icon hover effect:  */
 .header-icons svg:hover {
   color: #2e7d32;
 }

@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 const Login = () => {
+  // state variables to handle email and password inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  // function to handle form submission
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent page reload
+    // for now, just navigate to the dashboard after login
     navigate("/dashboard");
   };
 
@@ -19,6 +22,7 @@ const Login = () => {
         <p>Automated AI-based Student Inquiry Assistant</p>
         <div className="login-box">
           <h2>Log in to your account</h2>
+          {/* form to capture email and password */}
           <form onSubmit={handleSubmit}>
             <input
               type="email"

@@ -13,12 +13,15 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1>AASIA</h1>
-        <p>Automated AI-based Student Inquiry Assistant</p>
+        <h1>AASIA</h1> {/* application name */}
+        <p>Automated AI-based Student Inquiry Assistant</p>{" "}
+        {/* app description */}
         <button className="new-chat-btn" onClick={() => navigate("/newchat")}>
           New Chat
         </button>
       </div>
+
+      {/* main navigation section */}
       <nav className="sidebar-nav">
         <ul>
           <li onClick={() => navigate("/dashboard")}>
@@ -29,12 +32,14 @@ const Sidebar = () => {
             <ChatIcon />
             Chatbot
           </li>
-          <li>
+          <li onClick={() => navigate("/faq")}>
             <HelpIcon />
             Frequently-Asked Questions
           </li>
         </ul>
       </nav>
+
+      {/* footer navigation section */}
       <div className="sidebar-footer">
         <ul>
           <li onClick={() => navigate("/settings")}>

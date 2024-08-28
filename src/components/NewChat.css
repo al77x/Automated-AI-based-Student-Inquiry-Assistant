@@ -1,8 +1,10 @@
+/* container for new chat page using flexbox layout */
 .new-chat-page {
   display: flex;
   height: 100vh;
 }
 
+/* sidebar styling */
 .sidebar {
   width: 250px;
   background-color: #3e8e61;
@@ -12,6 +14,7 @@
   justify-content: space-between;
 }
 
+/* sidebar header styling */
 .sidebar-header {
   padding: 20px;
   display: flex;
@@ -19,16 +22,19 @@
   align-items: center;
 }
 
+/* sidebar header title styling */
 .sidebar-header h1 {
   font-size: 24px;
   margin: 0;
 }
 
+/* sidebar header description styling */
 .sidebar-header p {
   font-size: 14px;
   margin: 10px 0 0;
 }
 
+/* button styling for the new chat button */
 .new-chat-btn {
   background-color: #66b582;
   border: none;
@@ -39,49 +45,58 @@
   margin-top: 10px;
 }
 
+/* navigation section in the sidebar */
 .sidebar-nav {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
 }
 
+/* chat history item styling */
 .chat-history {
   margin-bottom: 20px;
   padding: 10px;
   transition: background-color 0.1s, color 0.1s;
 }
 
+/* hover effect for chat history items */
 .chat-history:hover {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
 }
 
+/* chat history text styling */
 .chat-history p {
   margin: 0;
   font-size: 14px;
   color: white;
 }
 
+/* chat history timestamp styling */
 .chat-history span {
   font-size: 12px;
   color: #c8e6c9;
 }
 
+/* sidebar footer section styling */
 .sidebar-footer {
   padding: 20px;
 }
 
+/* sidebar footer list styling */
 .sidebar-footer ul {
   list-style: none;
   padding: 0;
 }
 
+/* sidebar footer list item styling */
 .sidebar-footer ul li {
   margin: 10px 0;
   color: white;
 }
 
+/* main content area styling */
 .main-content {
   flex: 1;
   display: flex;
@@ -89,6 +104,7 @@
   background-color: #f8f8f8;
 }
 
+/* header section in the main content */
 .new-chat-header {
   display: flex;
   justify-content: flex-end;
@@ -98,30 +114,36 @@
   border-bottom: 1px solid #c8e6c9;
 }
 
+/* icon container in the header */
 .header-icons {
   display: flex;
   align-items: center;
 }
 
+/* styling for individual icons in the header */
 .header-icons svg {
   margin-left: 10px;
   cursor: pointer;
 }
 
+/* hover effect for header icons */
 .header-icons svg:hover {
   color: #2e7d32;
 }
 
+/* chat window styling */
 .chat-window {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
 }
 
+/* chat message styling */
 .chat-message {
   margin-bottom: 20px;
 }
 
+/* student message styling */
 .chat-message.student .message-content {
   background-color: #d1e7dd;
   padding: 10px;
@@ -130,6 +152,7 @@
   line-height: 1.7;
 }
 
+/* bot message styling */
 .chat-message.bot .message-content {
   background-color: #ffffff;
   padding: 10px;
@@ -139,10 +162,12 @@
   line-height: 1.7;
 }
 
+/* styling for text inside message content */
 .message-content p {
   margin: 0;
 }
 
+/* styling for the message timestamp */
 .message-time {
   display: block;
   font-size: 12px;
@@ -150,10 +175,12 @@
   margin-top: 5px;
 }
 
+/* container for additional links below message */
 .links {
   margin-top: 10px;
 }
 
+/* styling for buttons int the links section */
 .links button {
   background-color: #ffffff;
   border: 1px solid #c8e6c9;
@@ -164,6 +191,7 @@
   margin-right: 5px;
 }
 
+/* footer section styling */
 .footer {
   display: flex;
   align-items: center;
@@ -172,6 +200,7 @@
   border-top: 1px solid #c8e6c9;
 }
 
+/* input field styling in the footer */
 .footer input {
   flex: 1;
   padding: 10px;
@@ -180,6 +209,7 @@
   margin-right: 10px;
 }
 
+/* submit button styling in the footer */
 .footer button {
   background-color: #3e8e61;
   border: none;
@@ -189,6 +219,7 @@
   cursor: pointer;
 }
 
+/* code blocks styling */
 .code-block {
   background-color: #f5f5f5;
   padding: 10px;
@@ -200,29 +231,34 @@
   border: 1px solid #ccc;
 }
 
+/* chat history items styling */
 .chat-history {
   margin-bottom: 20px;
   padding: 10px;
   transition: background-color 0.1s, color 0.1s;
 }
 
+/* hover effect for chat history items */
 .chat-history:hover {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
 }
 
+/* chat history text styling */
 .chat-history p {
   margin: 0;
   font-size: 14px;
   color: white;
 }
 
+/* chat history timestampt styling */
 .chat-history span {
   font-size: 12px;
   color: #c8e6c9;
 }
 
+/* navigation section in the sidebar */
 .sidebar-nav {
   flex: 1;
   padding: 20px;
@@ -230,6 +266,7 @@
   scrollbar-width: none;
 }
 
+/* hide scroll bar in webkit browsers */
 .sidebar-nav::-webkit-scrollbar {
   display: none;
 }
