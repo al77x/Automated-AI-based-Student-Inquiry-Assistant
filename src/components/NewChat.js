@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./NewChat.css";
+import styles from "./NewChat.module.css";
 
 // icon imports
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -122,7 +122,7 @@ const NewChat = () => {
       `${currentChatId}-metadata`,
       JSON.stringify(chatMetadata)
     );
-    setMessage(""); // Clear the input field
+    setMessage("");
   };
 
   /*
@@ -130,7 +130,7 @@ const NewChat = () => {
 - resets the chat history and updates local storage
 */
   const startNewChatSession = () => {
-    const newChatId = Date.now().toString(); // Use a timestamp as the chat ID
+    const newChatId = Date.now().toString();
     setChatId(newChatId);
     setHistory([]);
     localStorage.setItem(
@@ -157,7 +157,7 @@ const NewChat = () => {
 
     return parts.map((part, index) =>
       index % 2 === 1 ? (
-        <pre className="code-block" key={index}>
+        <pre className={styles.codeBlock} key={index}>
           <code>{part}</code>
         </pre>
       ) : (
@@ -167,16 +167,16 @@ const NewChat = () => {
   };
 
   return (
-    <div className="new-chat-page">
-      <aside className="sidebar">
-        <div className="sidebar-header">
+    <div className={styles.newChatPage}>
+      <aside className={styles.sidebar}>
+        <div className={styles.sidebarHeader}>
           <h1>AASIA</h1>
           <p>Automated AI-based Student Inquiry Assistant</p>
-          <button className="new-chat-btn" onClick={startNewChatSession}>
+          <button className={styles.newChatBtn} onClick={startNewChatSession}>
             New Chat
           </button>
         </div>
-        <nav className="sidebar-nav">
+        <nav className={styles.sidebarNav}>
           {/* iterate over local storage keys to list all chat sessions */}
           {Object.keys(localStorage).map((key) => {
             if (key.endsWith("-metadata")) return null; // skip metadata keys
@@ -187,13 +187,13 @@ const NewChat = () => {
               ? trimChatTitle(metadata.lastMessage)
               : `Chat ${new Date(parseInt(key)).toLocaleDateString()}`;
             return (
-              <div key={key} className="chat-history">
+              <div key={key} className={styles.chatHistory}>
                 <p onClick={() => setChatId(key)}>{title}</p>
                 <span onClick={() => setChatId(key)}>
                   {new Date(parseInt(key)).toLocaleTimeString()}
                 </span>
                 <DeleteIcon
-                  className="delete-icon"
+                  className={styles.deleteIcon}
                   onClick={() => handleDeleteChat(key)}
                   style={{
                     cursor: "pointer",
@@ -205,7 +205,7 @@ const NewChat = () => {
             );
           })}
         </nav>
-        <div className="sidebar-footer">
+        <div className={styles.sidebarFooter}>
           <ul>
             <li onClick={() => navigate("/help")}>Help Center</li>
             <li onClick={() => navigate("/privacy")}>Privacy</li>
@@ -213,25 +213,30 @@ const NewChat = () => {
           </ul>
         </div>
       </aside>
-      <main className="main-content">
-        <header className="new-chat-header">
-          <div className="header-icons">
+      <main className={styles.mainContent}>
+        <header className={styles.newChatHeader}>
+          <div className={styles.headerIcons}>
             <DashboardIcon onClick={() => navigate("/dashboard")} />
             <SettingsIcon />
             <NotificationsIcon />
             <AccountCircleIcon onClick={() => navigate("/profile")} />
           </div>
         </header>
-        <div className="chat-window">
+        <div className={styles.chatWindow}>
           {/* Display the chat history */}
           {chatHistory.map((chat, index) => (
-            <div key={index} className={`chat-message ${chat.user}`}>
-              <div className="message-content">{renderText(chat.text)}</div>
-              <span className="message-time">{chat.time}</span>
+            <div
+              key={index}
+              className={`${styles.chatMessage} ${styles[chat.user]}`}
+            >
+              <div className={styles.messageContent}>
+                {renderText(chat.text)}
+              </div>
+              <span className={styles.messageTime}>{chat.time}</span>
             </div>
           ))}
         </div>
-        <footer className="footer">
+        <footer className={styles.footer}>
           <input
             type="text"
             value={message}
@@ -239,8 +244,11 @@ const NewChat = () => {
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything... I'm here to help!"
             autoFocus
+            className={styles.inputField}
           />
-          <button onClick={handleSendMessage}>Send</button>
+          <button className={styles.sendButton} onClick={handleSendMessage}>
+            Send
+          </button>
         </footer>
       </main>
     </div>

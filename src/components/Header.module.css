@@ -14,14 +14,14 @@
 }
 
 /* container for additional info (time, date, icons) */
-.header-info {
+.headerInfo {
   display: flex;
   align-items: center;
   margin-left: auto;
 }
 
 /* time and date container */
-.time-date {
+.timeDate {
   text-align: right;
   margin-right: 20px;
 }
@@ -37,18 +37,18 @@
 }
 
 /* icon container */
-.header-icons {
+.headerIcons {
   display: flex;
   align-items: center;
 }
 
 /* individual icons */
-.header-icons svg {
+.headerIcons svg {
   margin-left: 10px;
   cursor: pointer;
 }
 
 /* icon hover effect:  */
-.header-icons svg:hover {
+.headerIcons svg:hover {
   color: #2e7d32;
 }

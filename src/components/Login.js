@@ -1,28 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 const Login = () => {
-  // state variables to handle email and password inputs
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // function to handle form submission
   const handleSubmit = (event) => {
-    event.preventDefault(); // prevent page reload
-    // for now, just navigate to the dashboard after login
+    event.preventDefault();
     navigate("/dashboard");
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
+    <div className={styles.loginPage}>
+      <div className={styles.loginContainer}>
         <h1>AASIA</h1>
         <p>Automated AI-based Student Inquiry Assistant</p>
-        <div className="login-box">
+        <div className={styles.loginBox}>
           <h2>Log in to your account</h2>
-          {/* form to capture email and password */}
           <form onSubmit={handleSubmit}>
             <input
               type="email"
@@ -30,6 +26,7 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              className={styles.inputField}
             />
             <input
               type="password"
@@ -37,13 +34,14 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              className={styles.inputField}
             />
-            <a href="#" className="forgot-password">
-              {" "}
-              {/* add forgot password page */}
+            <a href="#" className={styles.forgotPassword}>
               forgot your password, <span>please click here</span>
             </a>
-            <button type="submit">Log in</button>
+            <button type="submit" className={styles.submitButton}>
+              Log in
+            </button>
           </form>
         </div>
       </div>

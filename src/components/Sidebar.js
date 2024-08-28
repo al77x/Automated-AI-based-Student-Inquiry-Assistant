@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Sidebar.css";
+import styles from "./Sidebar.module.css";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ChatIcon from "@mui/icons-material/Chat";
 import HelpIcon from "@mui/icons-material/Help";
@@ -11,18 +11,21 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="sidebar">
-      <div className="sidebar-header">
+    <div className={styles.sidebar}>
+      <div className={styles.sidebarHeader}>
         <h1>AASIA</h1> {/* application name */}
-        <p>Automated AI-based Student Inquiry Assistant</p>{" "}
+        <p>Automated AI-based Student Inquiry Assistant</p>
         {/* app description */}
-        <button className="new-chat-btn" onClick={() => navigate("/newchat")}>
+        <button
+          className={styles.newChatBtn}
+          onClick={() => navigate("/newchat")}
+        >
           New Chat
         </button>
       </div>
 
       {/* main navigation section */}
-      <nav className="sidebar-nav">
+      <nav className={styles.sidebarNav}>
         <ul>
           <li onClick={() => navigate("/dashboard")}>
             <DashboardIcon />
@@ -40,7 +43,7 @@ const Sidebar = () => {
       </nav>
 
       {/* footer navigation section */}
-      <div className="sidebar-footer">
+      <div className={styles.sidebarFooter}>
         <ul>
           <li onClick={() => navigate("/settings")}>
             <SettingsIcon />

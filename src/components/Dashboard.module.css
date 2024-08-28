@@ -1,5 +1,5 @@
 /* container for the main dashboard content */
-.dashboard-content {
+.dashboardContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -8,7 +8,7 @@
 
 /* styles for all dashboard sections */
 .activities,
-.recent-chats,
+.recentChats,
 .calendar,
 .notifications {
   background-color: #e8f5e9;
@@ -18,14 +18,14 @@
 
 /* remove top margin from headings inside these sections */
 .activities h3,
-.recent-chats h3,
+.recentChats h3,
 .calendar h3,
 .notifications h3 {
   margin-top: 0;
 }
 
 /* styles for individual chat cards in the recent chats section */
-.chat-card {
+.chatCard {
   background-color: white;
   padding: 20px;
   margin-top: 10px;
@@ -34,14 +34,14 @@
 }
 
 /* styles for the calendar widget inside the calendar section */
-.calendar-widget {
+.calendarWidget {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
 }
 
-/* highlight styling for selected date in calendar */
-.calendar-widget span {
+/* selected date design for the calendar */
+.selectedDate {
   background-color: #8e44ad;
   color: white;
   border-radius: 50%;
@@ -70,7 +70,7 @@
 }
 
 /* container for the main content area inside the dashboard */
-.main-content {
+.mainContent {
   flex: 1;
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import NewChat from "./components/NewChat";
 import ProfilePage from "./components/ProfilePage";
+import MentorDashboard from "./components/MentorDashboard/MentorDashboard";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
 
         {/* route to view and edit user profile details */}
         <Route path="/profile" element={<ProfilePage />} />
+
+        {/* route to the mentor dashboard */}
+        <Route path="/mentor-dashboard" element={<MentorDashboard />} />
       </Routes>
     </Router>
   );

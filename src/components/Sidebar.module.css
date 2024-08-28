@@ -9,23 +9,23 @@
 }
 
 /* sidebar header styling: padding for spacing */
-.sidebar-header {
+.sidebarHeader {
   padding: 20px;
 }
 
 /* sidebar title styling */
-.sidebar-header h1 {
+.sidebarHeader h1 {
   font-size: 24px;
 }
 
 /* sidebar description styling */
-.sidebar-header p {
+.sidebarHeader p {
   font-size: 14px;
   margin: 10px 0;
 }
 
 /* new chat button styling */
-.new-chat-btn {
+.newChatBtn {
   background-color: #66b582;
   border: none;
   padding: 10px;
@@ -35,15 +35,15 @@
 }
 
 /* remove default list styling for the navigation and footer lists */
-.sidebar-nav ul,
-.sidebar-footer ul {
+.sidebarNav ul,
+.sidebarFooter ul {
   list-style: none;
   padding: 0;
 }
 
 /* styling for list items in the navigation and footer */
-.sidebar-nav ul li,
-.sidebar-footer ul li {
+.sidebarNav ul li,
+.sidebarFooter ul li {
   display: flex;
   align-items: center;
   padding: 10px 20px;
@@ -51,13 +51,13 @@
 }
 
 /* hover effect for list items in the navigation and footer */
-.sidebar-nav ul li:hover,
-.sidebar-footer ul li:hover {
+.sidebarNav ul li:hover,
+.sidebarFooter ul li:hover {
   background-color: #2f6d48;
 }
 
 /* icon spacing within list items */
-.sidebar-nav ul li svg,
-.sidebar-footer ul li svg {
+.sidebarNav ul li svg,
+.sidebarFooter ul li svg {
   margin-right: 10px;
 }

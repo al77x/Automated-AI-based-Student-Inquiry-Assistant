@@ -1,41 +1,41 @@
 import React from "react";
-import "./ProfilePage.css";
+import styles from "./ProfilePage.module.css";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
 const ProfilePage = () => {
   return (
-    <div className="profile-page">
+    <div className={styles.profilePage}>
       <Sidebar />
 
-      <div className="main-content">
+      <div className={styles.mainContent}>
         {/* header component, with the welcome message disabled for this page */}
         <Header showWelcomeMessage={false} />
 
-        <div className="profile-container">
+        <div className={styles.profileContainer}>
           {/* header for the profile details section */}
-          <div className="profile-details-header">
+          <div className={styles.profileDetailsHeader}>
             <h2>User Details</h2>
-            <nav className="profile-nav">
+            <nav className={styles.profileNav}>
               {/* navigation buttons to switch between different profile sections */}
-              <button className="active">User Details</button>
+              <button className={styles.active}>User Details</button>
               <button>Language & Accessibility</button>
               <button>Academic Enrolment</button>
             </nav>
           </div>
 
           {/* main section for displaying and editing user information */}
-          <section className="user-info">
-            <div className="avatar-section">
+          <section className={styles.userInfo}>
+            <div className={styles.avatarSection}>
               {/* placeholder avatar with user initials */}
-              <div className="avatar">AS</div>
+              <div className={styles.avatar}>AS</div>
               <h2>Alice Smith</h2> {/* Display the user's name */}
             </div>
 
             {/* form for editing user details */}
             <form>
               <label>Full name</label>
-              <div className="name-inputs">
+              <div className={styles.nameInputs}>
                 <input type="text" placeholder="First name" />
                 <input type="text" placeholder="Last name" />
               </div>
@@ -47,7 +47,7 @@ const ProfilePage = () => {
               <input type="email" placeholder="alice.smith@email.com" />
               <label>Residential Address</label>
               <textarea placeholder="123 Laneway Avenue"></textarea>
-              <button type="submit" className="save-btn">
+              <button type="submit" className={styles.saveBtn}>
                 Save
               </button>
             </form>
