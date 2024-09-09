@@ -88,3 +88,35 @@ html {
 .submitButton:hover {
   background-color: #5c9443;
 }
+
+/* register link style */
+.registerLink {
+  display: block;
+  margin-bottom: 10px;
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* hover effect */
+.registerLink:hover {
+  text-decoration: underline;
+}
+
+/* existing account styling */
+.existingAccountText {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* existing account styling */
+.existingAccountText a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+/* existing account hover */
+.existingAccountText a:hover {
+  text-decoration: underline;
+}

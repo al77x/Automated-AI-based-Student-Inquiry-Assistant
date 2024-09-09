@@ -1,46 +1,91 @@
+import sqlite3
 from flask import Flask, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+import bcrypt
 
-app = Flask(backend)
+app = Flask(__name__)
+CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Need to replace with actual database link
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# helper function to connect to the SQLite db
+def get_db_connection():
+    conn = sqlite3.connect('users.db')
+    conn.row_factory = sqlite3.Row  # makes the rows behave like dictionaries
+    return conn
 
-# Creating of the SQLAlchemy db instance
-db = SQLAlchemy(app)
-
-# Defining a User model
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(50), nullable=False)
-    last_name = db.Column(db.String(50), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    password = db.Column(db.String(100), nullable=False)
-
-# Creating the database
-with app.app_context():
-    db.create_all()
-
-# Add a new user
+# register route
 @app.route('/register', methods=['POST'])
 def register():
-    data = request.json
-    new_user = User(
-        first_name=data['first_name'],
-        last_name=data['last_name'],
-        email=data['email'],
-        password=data['password']  # Note: Never store plain passwords in production; use hashing!
-    )
-    db.session.add(new_user)
-    db.session.commit()
-    return jsonify({"message": "User registered successfully"}), 201
+    data = request.get_json()
+    name = data['fullName']
+    email = data['email']
+    password = data['password']
 
-# All users
-@app.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    users_list = [{"first_name": user.first_name, "last_name": user.last_name, "email": user.email} for user in users]
-    return jsonify(users_list)
+    # hash the password
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    # insert the user into the db
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    try:
+        cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", 
+                       (name, email, hashed_password))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        return jsonify(message="User with this email already exists"), 400
+    finally:
+        conn.close()
+
+    return jsonify(message="User registered successfully"), 200
+
+# login Route
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data['email']
+    password = data['password']
+
+    # query the user by email
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+    user = cursor.fetchone()
+    conn.close()
+
+    if user:
+        # compare the entered password with the stored hashed password
+        if bcrypt.checkpw(password.encode('utf-8'), user['password']):
+            return jsonify(message="Login successful"), 200
+        else:
+            return jsonify(message="Invalid credentials"), 401
+    else:
+        return jsonify(message="Account not found"), 404
+
+# forgot password route 
+@app.route('/forgot-password', methods=['POST'])
+def forgot_password():
+    data = request.get_json()
+    email = data['email']
+    new_password = data['newPassword']
+
+    # query the user by email
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+    user = cursor.fetchone()
+
+    if user:
+        # hash the new password
+        hashed_password = bcrypt.hashpw(new_password.encode('utf-8'), bcrypt.gensalt())
+
+        # update the user's password in the db
+        cursor.execute("UPDATE users SET password = ? WHERE email = ?", (hashed_password, email))
+        conn.commit()
+        conn.close()
+        return jsonify(message="Password updated successfully!"), 200
+    else:
+        conn.close()
+        return jsonify(message="Email address not found"), 404
 
 if __name__ == '__main__':
     app.run(debug=True)

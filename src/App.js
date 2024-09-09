@@ -1,18 +1,34 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import NewChat from "./components/NewChat";
 import ProfilePage from "./components/ProfilePage";
 import MentorDashboard from "./components/MentorDashboard/MentorDashboard";
+import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
     <Router>
       {/* different routes of the application */}
       <Routes>
-        {/* default route to the login page */}
-        <Route path="/" element={<Login />} />
+        {/* default route to redirect the root path to the login page */}
+        <Route path="/" element={<Navigate to="/Login" />} />
+
+        {/* route to the login page */}
+        <Route path="/login" element={<Login />} />
+
+        {/* route to the Register page */}
+        <Route path="/register" element={<Register />} />
+
+        {/* route to the forgot password page */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* route to the dashboard after successful login */}
         <Route path="/dashboard" element={<Dashboard />} />
