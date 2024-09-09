@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 
-const Login = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    navigate("/dashboard");
+    // logic for handling forgot password request
+    console.log("Password reset email sent to:", email);
+    navigate("/login"); // redirect to login page after submission
   };
 
   return (
@@ -18,39 +19,27 @@ const Login = () => {
         <h1>AASIA</h1>
         <p>Automated AI-based Student Inquiry Assistant</p>
         <div className={styles.loginBox}>
-          <h2>Log in to your account</h2>
+          <h2>Forgot Password</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="email"
-              placeholder="email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className={styles.inputField}
             />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className={styles.inputField}
-            />
-            {/* direct to register or forgot password page */}
-            <a href="/register" className={styles.registerLink}>
-              Register as a new user{" "}
-            </a>
-            <a href="/forgot-password" className={styles.forgotPassword}>
-              forgot your password, <span>please click here</span>
-            </a>
             <button type="submit" className={styles.submitButton}>
-              Log in
+              Send Reset Link
             </button>
           </form>
+          <p className={styles.existingAccountText}>
+            Remembered your password? <a href="/">Log in</a>
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPassword;
