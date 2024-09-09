@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
+import axios from "axios";
+
 const Register = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -8,16 +10,34 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // logic to register user (to be implemented)
-    console.log("User registered:", {
-      fullName,
-      email,
-      password,
-      confirmPassword,
-    });
-    navigate("/login"); // redirect to login page after registration
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    try {
+      // send the registration data to the Flask backend
+      const response = await axios.post("http://localhost:5000/register", {
+        fullName: fullName,
+        email: email,
+        password: password,
+      });
+
+      if (response.status === 200) {
+        alert("Account registered successfully!");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      alert(
+        error.response
+          ? error.response.data.message
+          : "Registration failed! Please try again."
+      );
+    }
   };
 
   return (

@@ -1,15 +1,40 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate("/dashboard");
+
+    try {
+      // Send the login data to the Flask backend
+      const response = await axios.post("http://localhost:5000/login", {
+        email: email,
+        password: password,
+      });
+
+      if (response.status === 200) {
+        alert("Login successful!");
+        navigate("/dashboard"); // Redirect to dashboard after successful login
+      }
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status === 401) {
+          alert("Login failed: Invalid credentials!");
+        } else if (error.response.status === 404) {
+          alert("Login failed: Account not found!");
+        } else {
+          alert("Login failed: Server error.");
+        }
+      } else {
+        alert("Login failed: Network error.");
+      }
+    }
   };
 
   return (

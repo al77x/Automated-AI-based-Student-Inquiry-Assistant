@@ -82,10 +82,10 @@ def forgot_password():
         cursor.execute("UPDATE users SET password = ? WHERE email = ?", (hashed_password, email))
         conn.commit()
         conn.close()
-        return jsonify(message="Password updated successfully!"), 200
+        return jsonify(message="Password updated successfully"), 200
     else:
         conn.close()
-        return jsonify(message="Email address not found"), 404
+        return jsonify(message="User not found"), 404
 
 if __name__ == '__main__':
     app.run(debug=True)
