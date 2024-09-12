@@ -12,6 +12,7 @@ import ProfilePage from "./components/ProfilePage";
 import MentorDashboard from "./components/MentorDashboard/MentorDashboard";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
+import HelpCenter from "./components/HelpCenter";
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
 
         {/* route to view and edit user profile details */}
         <Route path="/profile" element={<ProfilePage />} />
+
+        {/* route to Help Center page */}
+        <Route path="/help" element={<HelpCenter />} />
 
         {/* route to the mentor dashboard */}
         <Route path="/mentor-dashboard" element={<MentorDashboard />} />
