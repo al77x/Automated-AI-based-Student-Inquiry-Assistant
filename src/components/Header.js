@@ -1,25 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 
-// material  UI icons imports
+// Material UI icons imports
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-// header with welcome message, update later to show signed in user name
 const Header = ({ showWelcomeMessage = true }) => {
   const navigate = useNavigate();
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    return () => clearInterval(timer); // Cleanup the interval
+  }, []);
 
   return (
     <div className={styles.header}>
-      {/* displaying current date and time, hardcoded for now */}
       {showWelcomeMessage && <h2>Welcome Alice Smith</h2>}
       <div className={styles.headerInfo}>
+        {/* Display real-time clock and date */}
         <div className={styles.timeDate}>
-          <div className={styles.time}>10:45</div>
-          <div className={styles.date}>11/7/2024</div>
+          <div className={styles.time}>
+            {currentTime.toLocaleTimeString()}
+          </div>
+          <div className={styles.date}>
+            {currentTime.toLocaleDateString()}
+          </div>
         </div>
 
         {/* icons for navigation and settings */}

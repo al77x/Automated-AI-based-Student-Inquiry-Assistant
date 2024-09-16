@@ -29,11 +29,14 @@
 /* time styling */
 .time {
   font-size: 24px;
+  font-weight: bold;
+  color: #333;
 }
 
 /* date styling */
 .date {
   font-size: 16px;
+  color: #666;
 }
 
 /* icon container */
@@ -48,7 +51,7 @@
   cursor: pointer;
 }
 
-/* icon hover effect:  */
+/* icon hover effect */
 .headerIcons svg:hover {
   color: #2e7d32;
 }
