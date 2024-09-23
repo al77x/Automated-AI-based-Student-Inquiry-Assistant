@@ -1,0 +1,63 @@
+/* Main container styles */
+.privacyPolicy {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  /* Header styles */
+  .header {
+    background: linear-gradient(135deg, #4CAF50, #2196F3);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .header h1 {
+    color: white; /* Keep the AASIA Privacy Policy text white */
+  }
+  
+  /* Container to limit width of content */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Heading styles */
+  h2 {
+    color: #4CAF50; /* Keep the headings green */
+  }
+  
+  /* Policy section styling */
+  .policySection {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* List styling */
+  ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  /* Contact button */
+  .contactButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .contactButton:hover {
+    background-color: #45a049;
+  }
+  
