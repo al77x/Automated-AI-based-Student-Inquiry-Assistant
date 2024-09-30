@@ -1,31 +1,17 @@
 /* container for new chat page using flexbox layout */
 .newChatPage {
   display: flex;
-  flex-direction: column;
-  height: 100vh; /* Full height including the header */
+  height: 100vh;
 }
 
-/* Sidebar styling */
+/* sidebar styling */
 .sidebar {
-  position: fixed; /* Make the sidebar fixed */
-  top: 70px; /* Align it below the header */
-  bottom: 0; /* Ensure it stretches to the bottom */
-  left: 0;
   width: 250px;
   background-color: #1e3932;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  z-index: 1000; /* Ensure the sidebar stays above the content */
-}
-
-/* Adjust the rest of the page to not go under the sidebar */
-.pageContent {
-  margin-left: 250px; /* Ensure the content starts next to the fixed sidebar */
-  display: flex;
-  flex-grow: 1;
-  height: 100%; /* Adjust height for full-page view */
 }
 
 /* sidebar header styling */
@@ -46,6 +32,55 @@
 .sidebarHeader p {
   font-size: 14px;
   margin: 10px 0 0;
+}
+
+/* header section in the main content */
+.newChatHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  background-color: #d4e9e2;
+  border-bottom: 1px solid #1e3932;
+}
+
+/* Header title (if needed) */
+.newChatHeader h2 {
+  margin: 0;
+}
+
+/* Icon container */
+.headerIcons {
+  display: flex;
+  align-items: center;
+}
+
+/* Individual icons */
+.headerIcons svg {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Icon hover effect */
+.headerIcons svg:hover {
+  color: #00704a;
+}
+
+/* additional header info styling (like time/date) */
+.headerInfo {
+  margin-left: auto;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.headerInfo .time {
+  font-size: 24px;
+  color: #1e3932;
+}
+
+.headerInfo .date {
+  font-size: 16px;
+  color: #1e3932;
 }
 
 /* button styling for the new chat button */

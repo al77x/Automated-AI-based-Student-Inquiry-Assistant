@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./NewChat.module.css";
-import Header from "../Header/Header";
+import styles from "../NewChat/NewChat.module.css";
 
 // icon imports
+import SettingsIcon from "@mui/icons-material/Settings";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 // shortens chat title to 25 characters and ends it with an ellipsis (...) if its longer
@@ -165,89 +168,89 @@ const NewChat = () => {
 
   return (
     <div className={styles.newChatPage}>
-      {/* Header Component */}
-      <Header showWelcomeMessage={false} />
-
-      <div className={styles.pageContent}>
-        {/* Sidebar */}
-        <aside className={styles.sidebar}>
-          <div className={styles.sidebarHeader}>
-            <h1>AASIA</h1>
-            <p>Automated AI-based Student Inquiry Assistant</p>
-            <button className={styles.newChatBtn} onClick={startNewChatSession}>
-              New Chat
-            </button>
-          </div>
-          <nav className={styles.sidebarNav}>
-            {/* iterate over local storage keys to list all chat sessions */}
-            {Object.keys(localStorage).map((key) => {
-              if (key.endsWith("-metadata")) return null; // skip metadata keys
-              const metadata = JSON.parse(
-                localStorage.getItem(`${key}-metadata`)
-              );
-              const title = metadata?.lastMessage
-                ? trimChatTitle(metadata.lastMessage)
-                : `Chat ${new Date(parseInt(key)).toLocaleDateString()}`;
-              return (
-                <div key={key} className={styles.chatHistory}>
-                  <p onClick={() => setChatId(key)}>{title}</p>
-                  <span onClick={() => setChatId(key)}>
-                    {new Date(parseInt(key)).toLocaleTimeString()}
-                  </span>
-                  <DeleteIcon
-                    className={styles.deleteIcon}
-                    onClick={() => handleDeleteChat(key)}
-                    style={{
-                      cursor: "pointer",
-                      marginLeft: "10px",
-                      color: "#ff4d4f",
-                    }}
-                  />
-                </div>
-              );
-            })}
-          </nav>
-          <div className={styles.sidebarFooter}>
-            <ul>
-              <li onClick={() => navigate("/help")}>Help Center</li>
-              <li onClick={() => navigate("/privacy")}>Privacy</li>
-              <li onClick={() => navigate("/terms")}>Terms of Service</li>
-            </ul>
-          </div>
-        </aside>
-
-        {/* Main chat window */}
-        <main className={styles.mainContent}>
-          <div className={styles.chatWindow}>
-            {/* Display the chat history */}
-            {chatHistory.map((chat, index) => (
-              <div
-                key={index}
-                className={`${styles.chatMessage} ${styles[chat.user]}`}
-              >
-                <div className={styles.messageContent}>
-                  {renderText(chat.text)}
-                </div>
-                <span className={styles.messageTime}>{chat.time}</span>
+      <aside className={styles.sidebar}>
+        <div className={styles.sidebarHeader}>
+          <h1>AASIA</h1>
+          <p>Automated AI-based Student Inquiry Assistant</p>
+          <button className={styles.newChatBtn} onClick={startNewChatSession}>
+            New Chat
+          </button>
+        </div>
+        <nav className={styles.sidebarNav}>
+          {/* iterate over local storage keys to list all chat sessions */}
+          {Object.keys(localStorage).map((key) => {
+            if (key.endsWith("-metadata")) return null; // skip metadata keys
+            const metadata = JSON.parse(
+              localStorage.getItem(`${key}-metadata`)
+            );
+            const title = metadata?.lastMessage
+              ? trimChatTitle(metadata.lastMessage)
+              : `Chat ${new Date(parseInt(key)).toLocaleDateString()}`;
+            return (
+              <div key={key} className={styles.chatHistory}>
+                <p onClick={() => setChatId(key)}>{title}</p>
+                <span onClick={() => setChatId(key)}>
+                  {new Date(parseInt(key)).toLocaleTimeString()}
+                </span>
+                <DeleteIcon
+                  className={styles.deleteIcon}
+                  onClick={() => handleDeleteChat(key)}
+                  style={{
+                    cursor: "pointer",
+                    marginLeft: "10px",
+                    color: "#ff4d4f",
+                  }}
+                />
               </div>
-            ))}
+            );
+          })}
+        </nav>
+        <div className={styles.sidebarFooter}>
+          <ul>
+            <li onClick={() => navigate("/help")}>Help Center</li>
+            <li onClick={() => navigate("/privacy")}>Privacy</li>
+            <li onClick={() => navigate("/terms")}>Terms of Service</li>
+          </ul>
+        </div>
+      </aside>
+      <main className={styles.mainContent}>
+        <header className={styles.newChatHeader}>
+          <div className={styles.headerIcons}>
+            <DashboardIcon onClick={() => navigate("/dashboard")} />
+            <SettingsIcon />
+            <NotificationsIcon />
+            <AccountCircleIcon onClick={() => navigate("/profile")} />
           </div>
-          <footer className={styles.footer}>
-            <input
-              type="text"
-              value={message}
-              onChange={handleInputChange}
-              onKeyPress={handleKeyPress}
-              placeholder="Ask me anything... I'm here to help!"
-              autoFocus
-              className={styles.inputField}
-            />
-            <button className={styles.sendButton} onClick={handleSendMessage}>
-              Send
-            </button>
-          </footer>
-        </main>
-      </div>
+        </header>
+        <div className={styles.chatWindow}>
+          {/* Display the chat history */}
+          {chatHistory.map((chat, index) => (
+            <div
+              key={index}
+              className={`${styles.chatMessage} ${styles[chat.user]}`}
+            >
+              <div className={styles.messageContent}>
+                {renderText(chat.text)}
+              </div>
+              <span className={styles.messageTime}>{chat.time}</span>
+            </div>
+          ))}
+        </div>
+        <footer className={styles.footer}>
+          <input
+            type="text"
+            value={message}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Ask me anything... I'm here to help!"
+            autoFocus
+            className={styles.inputField}
+          />
+          <button className={styles.sendButton} onClick={handleSendMessage}>
+            Send
+          </button>
+        </footer>
+      </main>
     </div>
   );
 };
