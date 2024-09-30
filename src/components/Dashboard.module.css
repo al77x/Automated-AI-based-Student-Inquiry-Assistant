@@ -11,7 +11,7 @@
 .recentChats,
 .calendar,
 .notifications {
-  background-color: #e8f5e9;
+  background-color: #d4e9e2;
   padding: 20px;
   border-radius: 5px;
 }
@@ -74,4 +74,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
 }

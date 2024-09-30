@@ -125,3 +125,7 @@ form textarea {
   cursor: pointer;
   margin-top: 20px;
 }
+
+body {
+  font-family: "Work Sans", sans-serif;
+}
