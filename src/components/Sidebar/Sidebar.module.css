@@ -1,7 +1,7 @@
 /* sidebar container: sets the overall layout and color scheme */
 .sidebar {
   width: 250px;
-  background-color: #1e3932;
+  background-color: #1e3932; /* Updated to Starbucks House Green */
   color: white;
   display: flex;
   flex-direction: column;

@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./ProfilePage.module.css";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import styles from "../ProfilePage/ProfilePage.module.css";
+import Header from "../Header/Header";
+import Sidebar from "../Sidebar/Sidebar";
 
 const ProfilePage = () => {
   return (

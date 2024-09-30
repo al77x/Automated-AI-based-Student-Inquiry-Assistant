@@ -1,17 +1,31 @@
 /* container for new chat page using flexbox layout */
 .newChatPage {
   display: flex;
-  height: 100vh;
+  flex-direction: column;
+  height: 100vh; /* Full height including the header */
 }
 
-/* sidebar styling */
+/* Sidebar styling */
 .sidebar {
+  position: fixed; /* Make the sidebar fixed */
+  top: 70px; /* Align it below the header */
+  bottom: 0; /* Ensure it stretches to the bottom */
+  left: 0;
   width: 250px;
   background-color: #1e3932;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1000; /* Ensure the sidebar stays above the content */
+}
+
+/* Adjust the rest of the page to not go under the sidebar */
+.pageContent {
+  margin-left: 250px; /* Ensure the content starts next to the fixed sidebar */
+  display: flex;
+  flex-grow: 1;
+  height: 100%; /* Adjust height for full-page view */
 }
 
 /* sidebar header styling */

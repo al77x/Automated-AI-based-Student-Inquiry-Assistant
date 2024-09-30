@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Dashboard.module.css";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 
 const DashboardContent = () => {
   return (

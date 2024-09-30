@@ -5,13 +5,14 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import NewChat from "./components/NewChat";
-import ProfilePage from "./components/ProfilePage";
+
+import Login from "./components/Login/Login";
+import Register from "./components/Login/Register";
+import ForgotPassword from "./components/Login/ForgotPassword";
+import Dashboard from "./components/Dashboard/Dashboard";
+import NewChat from "./components/NewChat/NewChat";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 import MentorDashboard from "./components/MentorDashboard/MentorDashboard";
-import Register from "./components/Register";
-import ForgotPassword from "./components/ForgotPassword";
 
 function App() {
   return (
