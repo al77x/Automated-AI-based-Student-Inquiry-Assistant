@@ -1,80 +1,120 @@
 /* container for the main dashboard content */
 .dashboardContent {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 20px;
+  background-color: #f8f8f8;
 }
 
-/* styles for all dashboard sections */
+/* Styles for all dashboard sections with solid background */
 .activities,
 .recentChats,
 .calendar,
 .notifications {
   background-color: #d4e9e2;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* remove top margin from headings inside these sections */
+/* Hover effect for sections */
+.activities:hover,
+.recentChats:hover,
+.calendar:hover,
+.notifications:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove top margin from headings inside these sections */
 .activities h3,
 .recentChats h3,
 .calendar h3,
 .notifications h3 {
   margin-top: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3932;
 }
 
-/* styles for individual chat cards in the recent chats section */
+/* Styles for individual chat cards */
 .chatCard {
-  background-color: #f5f5f5;
-  padding: 20px;
+  background-color: #ffffff;
+  padding: 15px;
   margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
-/* styles for the calendar widget inside the calendar section */
+.chatCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Calendar widget styling */
 .calendarWidget {
   background-color: #f5f5f5;
   padding: 20px;
   border-radius: 5px;
 }
 
-/* selected date design for the calendar */
+/* Selected date styling */
 .selectedDate {
   background-color: #8e44ad;
   color: white;
   border-radius: 50%;
   padding: 5px;
+  transition: background-color 0.3s;
 }
 
-/* remove default list styling for notifications list */
+.selectedDate:hover {
+  background-color: #7b3b9a;
+}
+
+/* Remove default list styling for notifications */
 .notifications ul {
   list-style-type: none;
   padding: 0;
 }
 
-/* styles for individual notification items */
+/* Styles for individual notification items */
 .notifications ul li {
-  background-color: #f5f5f5;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 15px;
   margin-top: 10px;
-  border-radius: 5px;
+  border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
-/* main dashboard container with a flexible layout */
+.notifications ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Main dashboard container */
 .dashboard {
   display: flex;
   height: 100vh;
+  background-color: #f8f8f8;
 }
 
-/* container for the main content area inside the dashboard */
+/* Main content area */
 .mainContent {
   flex: 1;
   display: flex;
   flex-direction: column;
   background-color: #f8f8f8;
+}
+
+/* Headings improvements */
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e3932;
 }
 
 body {

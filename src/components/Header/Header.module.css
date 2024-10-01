@@ -1,4 +1,4 @@
-/* flexbox layout to space out the content */
+/* Flexbox layout to space out the content */
 .header {
   display: flex;
   justify-content: space-between;
@@ -6,11 +6,21 @@
   padding: 20px;
   background-color: #d4e9e2;
   border-bottom: 1px solid #1e3932;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Header hover effect */
+.header:hover {
+  background-color: #cfe5dc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* header title */
 .header h2 {
   margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
   color: #22292f;
 }
 
@@ -19,22 +29,6 @@
   display: flex;
   align-items: center;
   margin-left: auto;
-}
-
-/* time and date container */
-.timeDate {
-  text-align: right;
-  margin-right: 20px;
-}
-
-/* time styling */
-.time {
-  font-size: 24px;
-}
-
-/* date styling */
-.date {
-  font-size: 16px;
 }
 
 /* icon container */
@@ -47,9 +41,33 @@
 .headerIcons svg {
   margin-left: 10px;
   cursor: pointer;
+  transition: color 0.3s, transform 0.3s, background-color 0.3s;
+  padding: 5px;
+  border-radius: 50%;
 }
 
 /* icon hover effect */
 .headerIcons svg:hover {
   color: #00704a;
+  background-color: #d4e9e2;
+  transform: scale(1.1);
+}
+
+/* time and date container */
+.timeDate {
+  text-align: right;
+  margin-right: 20px;
+}
+
+/* time styling */
+.time {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* date styling */
+.date {
+  font-size: 16px;
+  color: #666;
 }

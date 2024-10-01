@@ -86,7 +86,7 @@ const Register = () => {
             </button>
           </form>
           <p className={styles.existingAccountText}>
-            Already have an account? <a href="/">Log in</a>
+            Already have an account? <a href="/login">Log in</a>
           </p>
         </div>
       </div>

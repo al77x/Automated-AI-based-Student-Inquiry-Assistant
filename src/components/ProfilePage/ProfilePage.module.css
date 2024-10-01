@@ -44,12 +44,13 @@
   background-color: #1e3932;
   color: white;
   font-family: "Work Sans", sans-serif;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-/* active state styling for the navigation buttons */
-.profileNav .active {
+/* Hover effect for navigation buttons */
+.profileNav button:hover {
   background-color: #00704a;
-  color: white;
+  transform: translateY(-2px);
 }
 
 /* container for user information within the profile */
@@ -57,7 +58,12 @@
   background-color: #d4e9e2;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.userInfo:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* section for avatar display and user details */
@@ -79,6 +85,12 @@
   align-items: center;
   font-size: 24px;
   margin-right: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
 }
 
 /* form styling for profile information updates */
@@ -92,6 +104,7 @@ form label {
   margin-top: 10px;
   font-size: 14px;
   color: #1e3932;
+  font-weight: bold;
 }
 
 /* container for name input fields, allowing them to be side-by-side */
@@ -109,6 +122,7 @@ form textarea {
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
+  font-size: 14px;
 }
 
 /* textarea-specific styling */
@@ -121,11 +135,20 @@ form textarea {
 .saveBtn {
   background-color: #00704a;
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.saveBtn:hover {
+  background-color: #1e3932;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 body {

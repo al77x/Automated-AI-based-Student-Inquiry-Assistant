@@ -80,17 +80,25 @@ const MentorDashboard = () => {
                 15
               </p>
             </div>
+            {/* Calendar notification */}
+            <div className={styles.calendarNotification}>
+              <p>Upcoming event: Lecture on the 15th</p>
+              <span>14:00</span>
+            </div>
           </div>
 
           {/* system notifications */}
           <div className={styles.systemNotifications}>
             <h3>System Notifications</h3>
             <ul>
-              <li>
+              {/* System notification card */}
+              <li className={styles.systemNotificationCard}>
                 <b>System Update</b> - Scheduled maintenance on 22/07/2024
+                <span>12:00</span>
               </li>
-              <li>
+              <li className={styles.systemNotificationCard}>
                 <b>New Feature Release</b> - New chatbot functionality added
+                <span>12:45</span>
               </li>
             </ul>
           </div>

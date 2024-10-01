@@ -1,18 +1,29 @@
 /* sidebar container: sets the overall layout and color scheme */
 .sidebar {
   width: 250px;
-  background-color: #1e3932;
+  background: linear-gradient(
+    135deg,
+    #1e3932,
+    #2f6d48
+  ); /* Gradient background for the whole sidebar */
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 /* Styling for the logo in the sidebar */
 .logo {
-  width: 60px;
+  width: 80px;
   height: auto;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 /* Sidebar header styling */
@@ -21,29 +32,48 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: none;
 }
 
-/* sidebar title styling */
+/* Sidebar title styling */
 .sidebarHeader h1 {
   font-size: 24px;
   margin: 0;
+  color: #d4e9e2;
 }
 
-/* p tag in sidebarheader styling */
+/* Sidebar description text */
 .sidebarHeader p {
   font-size: 14px;
   text-align: center;
-  margin: 10px 0 15px 0; /* Spacing between the text and button */
+  margin: 10px 0 15px 0;
+  color: #cfe5dc;
 }
 
 /* new chat button styling */
 .newChatBtn {
   background-color: #00704a;
   border: none;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
   color: white;
-  border-radius: 5px;
+  border-radius: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  width: 100px;
+  text-align: center;
+}
+
+.newChatBtn:hover {
+  background-color: #4a9380;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Slight glow effect on hover for the button */
+.newChatBtn:hover {
+  box-shadow: 0 0 15px rgba(0, 112, 74, 0.7);
+  transform: translateY(-2px);
 }
 
 /* remove default list styling for the navigation and footer lists */
@@ -51,6 +81,7 @@
 .sidebarFooter ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 /* styling for list items in the navigation and footer */
@@ -58,20 +89,29 @@
 .sidebarFooter ul li {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 20px;
   cursor: pointer;
+  transition: background-color 0.3s, padding-left 0.3s;
+  border-radius: 6px;
 }
 
-/* hover effect for list items in the navigation and footer */
 .sidebarNav ul li:hover,
 .sidebarFooter ul li:hover {
   background-color: #2f6d48;
+  padding-left: 25px;
 }
 
-/* icon spacing within list items */
+/* Icon spacing within list items */
 .sidebarNav ul li svg,
 .sidebarFooter ul li svg {
-  margin-right: 10px;
+  margin-right: 12px;
+  transition: transform 0.3s;
+}
+
+/* Slight icon zoom on hover */
+.sidebarNav ul li:hover svg,
+.sidebarFooter ul li:hover svg {
+  transform: scale(1.1);
 }
 
 /* Sidebar links */
@@ -81,6 +121,7 @@
   display: block;
   margin-bottom: 10px;
   font-size: 18px;
+  transition: color 0.3s, padding-left 0.3s;
 }
 
 /* Sidebar link hover */
