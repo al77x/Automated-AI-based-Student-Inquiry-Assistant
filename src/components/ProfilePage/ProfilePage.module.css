@@ -42,7 +42,14 @@
   border-radius: 5px;
   margin-left: 10px;
   background-color: #1e3932;
-  color: #d4e9e2;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* active state styling for the navigation buttons */
+.profileNav .active {
+  background-color: #00704a;
+  color: white;
 }
 
 /* container for user information within the profile */
