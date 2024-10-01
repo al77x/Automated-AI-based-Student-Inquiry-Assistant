@@ -1,16 +1,26 @@
 /* sidebar container: sets the overall layout and color scheme */
 .sidebar {
   width: 250px;
-  background-color: #1e3932; /* Updated to Starbucks House Green */
+  background-color: #1e3932;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* sidebar header styling: padding for spacing */
+/* Styling for the logo in the sidebar */
+.logo {
+  width: 60px;
+  height: auto;
+  margin: 0 auto 10px auto;
+}
+
+/* Sidebar header styling */
 .sidebarHeader {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* sidebar title styling */
@@ -18,10 +28,11 @@
   font-size: 24px;
 }
 
-/* sidebar description styling */
+/* p tag in sidebarheader styling */
 .sidebarHeader p {
+  text-align: center;
+  margin: 10px 0 15px 0;
   font-size: 14px;
-  margin: 10px 0;
 }
 
 /* new chat button styling */

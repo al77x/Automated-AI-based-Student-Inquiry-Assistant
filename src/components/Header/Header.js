@@ -25,7 +25,7 @@ const Header = ({ showWelcomeMessage = true }) => {
         {/* icons for navigation and settings */}
         <div className={styles.headerIcons}>
           <DashboardIcon onClick={() => navigate("/dashboard")} />
-          <SettingsIcon />
+          <SettingsIcon onClick={() => navigate("/settings")} />
           <NotificationsIcon />
           <AccountCircleIcon onClick={() => navigate("/profile")} />
         </div>

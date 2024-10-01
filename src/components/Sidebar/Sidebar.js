@@ -6,6 +6,7 @@ import ChatIcon from "@mui/icons-material/Chat";
 import HelpIcon from "@mui/icons-material/Help";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FeedbackIcon from "@mui/icons-material/Feedback";
+import logo from "../../assets/aasia-logo.png";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebarHeader}>
-        <h1>AASIA</h1> {/* application name */}
+        <img src={logo} alt="AASIA Logo" className={styles.logo} />
         <p>Automated AI-based Student Inquiry Assistant</p>
         {/* app description */}
         <button

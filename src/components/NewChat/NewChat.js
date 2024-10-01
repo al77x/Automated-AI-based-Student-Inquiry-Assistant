@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../NewChat/NewChat.module.css";
+import logo from "../../assets/aasia-logo.png";
 
 // icon imports
 import SettingsIcon from "@mui/icons-material/Settings";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -170,7 +172,7 @@ const NewChat = () => {
     <div className={styles.newChatPage}>
       <aside className={styles.sidebar}>
         <div className={styles.sidebarHeader}>
-          <h1>AASIA</h1>
+          <img src={logo} alt="AASIA Logo" className={styles.logo} />
           <p>Automated AI-based Student Inquiry Assistant</p>
           <button className={styles.newChatBtn} onClick={startNewChatSession}>
             New Chat
@@ -207,6 +209,14 @@ const NewChat = () => {
         </nav>
         <div className={styles.sidebarFooter}>
           <ul>
+            <li onClick={() => navigate("/settings")}>
+              <SettingsIcon />
+              Settings
+            </li>
+            <li onClick={() => navigate("/feedback")}>
+              <FeedbackIcon />
+              Feedback
+            </li>
             <li onClick={() => navigate("/help")}>Help Center</li>
             <li onClick={() => navigate("/privacy")}>Privacy</li>
             <li onClick={() => navigate("/terms")}>Terms of Service</li>
@@ -217,7 +227,7 @@ const NewChat = () => {
         <header className={styles.newChatHeader}>
           <div className={styles.headerIcons}>
             <DashboardIcon onClick={() => navigate("/dashboard")} />
-            <SettingsIcon />
+            <SettingsIcon onClick={() => navigate("/settings")} />
             <NotificationsIcon />
             <AccountCircleIcon onClick={() => navigate("/profile")} />
           </div>
