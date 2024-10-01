@@ -5,13 +5,16 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
-import NewChat from "./components/NewChat";
-import ProfilePage from "./components/ProfilePage";
+
+import Login from "./components/Login/Login";
+import Register from "./components/Login/Register";
+import ForgotPassword from "./components/Login/ForgotPassword";
+import Dashboard from "./components/Dashboard/Dashboard";
+import NewChat from "./components/NewChat/NewChat";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 import MentorDashboard from "./components/MentorDashboard/MentorDashboard";
-import Register from "./components/Register";
-import ForgotPassword from "./components/ForgotPassword";
+import Settings from "./components/Settings/Settings";
+import HelpCenter from "./components/HelpCenter/HelpCenter";
 
 function App() {
   return (
@@ -38,6 +41,12 @@ function App() {
 
         {/* route to view and edit user profile details */}
         <Route path="/profile" element={<ProfilePage />} />
+
+        {/* route to settings page */}
+        <Route path="/settings" element={<Settings />} />
+
+        {/* route to Help Center section */}
+        <Route path="/help" element={<HelpCenter />} />
 
         {/* route to the mentor dashboard */}
         <Route path="/mentor-dashboard" element={<MentorDashboard />} />

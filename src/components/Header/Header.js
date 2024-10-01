@@ -15,7 +15,7 @@ const Header = ({ showWelcomeMessage = true }) => {
   return (
     <div className={styles.header}>
       {/* displaying current date and time, hardcoded for now */}
-      {showWelcomeMessage && <h2>Welcome Alice Smith</h2>}
+      {showWelcomeMessage && <h2>Welcome, Alice Smith</h2>}
       <div className={styles.headerInfo}>
         <div className={styles.timeDate}>
           <div className={styles.time}>10:45</div>
@@ -25,7 +25,7 @@ const Header = ({ showWelcomeMessage = true }) => {
         {/* icons for navigation and settings */}
         <div className={styles.headerIcons}>
           <DashboardIcon onClick={() => navigate("/dashboard")} />
-          <SettingsIcon />
+          <SettingsIcon onClick={() => navigate("/settings")} />
           <NotificationsIcon />
           <AccountCircleIcon onClick={() => navigate("/profile")} />
         </div>

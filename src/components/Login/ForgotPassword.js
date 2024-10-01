@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Login.module.css";
+import styles from "../Login/Login.module.css";
 import axios from "axios";
+import logo from "../../assets/aasia-logo.png";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ const ForgotPassword = () => {
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginContainer}>
-        <h1>AASIA</h1>
+        <img src={logo} alt="AASIA Logo" className={styles.logo} />
         <p>Automated AI-based Student Inquiry Assistant</p>
         <div className={styles.loginBox}>
           <h2>Reset Password</h2>

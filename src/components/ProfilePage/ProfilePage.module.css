@@ -9,14 +9,12 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
 }
 
 /* profile container that holds all profile-related content */
 .profileContainer {
   flex: 1;
   padding: 20px;
-  background-color: #f5f5f5;
 }
 
 /* header section for profile details, including the title and navigation */
@@ -31,6 +29,7 @@
 .profileDetailsHeader h2 {
   margin: 0;
   font-size: 24px;
+  color: #1e3932;
 }
 
 /* navigation buttons within the profile section */
@@ -40,22 +39,23 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  color: #3e8e61;
+  color: #00704a;
   border-radius: 5px;
   margin-left: 10px;
 }
 
 /* active state styling for the navigation buttons */
 .profileNav .active {
-  background-color: #66b582;
+  background-color: #00704a;
   color: white;
 }
 
 /* container for user information within the profile */
 .userInfo {
-  background-color: white;
+  background-color: #d4e9e2;
   padding: 20px;
   border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
 }
 
 /* section for avatar display and user details */
@@ -70,7 +70,7 @@
   width: 60px;
   height: 60px;
   background-color: #c8e6c9;
-  color: #3e8e61;
+  color: #1e3932;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -89,7 +89,7 @@ form {
 form label {
   margin-top: 10px;
   font-size: 14px;
-  color: #333;
+  color: #1e3932;
 }
 
 /* container for name input fields, allowing them to be side-by-side */
@@ -103,7 +103,7 @@ form input,
 form textarea {
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #00704a;
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
@@ -117,11 +117,15 @@ form textarea {
 
 /* save button styling */
 .saveBtn {
-  background-color: #66b582;
+  background-color: #00704a;
   color: white;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
 }

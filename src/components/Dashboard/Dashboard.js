@@ -1,19 +1,32 @@
 import React from "react";
 import styles from "./Dashboard.module.css";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 
 const DashboardContent = () => {
   return (
     <div className={styles.dashboardContent}>
       {/* section for recent activities */}
       <div className={styles.activities}>
-        <h3>Recent Activities:</h3>
-        <ul>
-          <li>*Interactions*</li>
-          <li>*Updates on inquiries*</li>
-          <li>*Messages*</li>
-        </ul>
+        <h3>Inbox</h3>
+        {/* individual chat cards showing inbox messages */}
+        <div className={styles.chatCard}>
+          Dear students, some of the groups already...
+          <br />6 days ago
+        </div>
+        <div className={styles.chatCard}>
+          Dear Students - please note there is no...
+          <br />
+          Today
+        </div>
+        <div className={styles.chatCard}>
+          Yes, that's exactly the one in the shopp...
+          <br />2 weeks ago
+        </div>
+        <div className={styles.chatCard}>
+          Apologies all for the inconsistent dates...
+          <br />3 day ago
+        </div>
       </div>
 
       {/* section for recent chats */}
@@ -36,7 +49,7 @@ const DashboardContent = () => {
       </div>
 
       <div className={styles.calendar}>
-        <h3>date</h3>
+        <h3>Calendar</h3>
         <div className={styles.calendarWidget}>
           {/* TODO: Find a date picker library here or change this feature, added a placeholder for now */}
           <p>M T W T F S S</p>
@@ -48,7 +61,7 @@ const DashboardContent = () => {
 
       {/* section for notifications */}
       <div className={styles.notifications}>
-        <h3>Notifications</h3>
+        <h3>System Notifications</h3>
         <ul>
           <li>
             <b>System Update</b>
