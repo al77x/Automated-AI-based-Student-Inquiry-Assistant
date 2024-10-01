@@ -6,19 +6,30 @@
 
 /* Styling for the logo in the sidebar */
 .logo {
-  width: 60px;
+  width: 80px;
   height: auto;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 /* sidebar styling */
 .sidebar {
   width: 250px;
-  background-color: #1e3932;
+  background: linear-gradient(
+    135deg,
+    #1e3932,
+    #2f6d48
+  ); /* Gradient background for the whole sidebar */
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
 /* sidebar header styling */
@@ -29,17 +40,19 @@
   align-items: center;
 }
 
-/* sidebar header title styling */
+/* Sidebar title styling */
 .sidebarHeader h1 {
   font-size: 24px;
   margin: 0;
+  color: #d4e9e2;
 }
 
-/* sidebar header description styling */
+/* Sidebar description text */
 .sidebarHeader p {
   font-size: 14px;
   text-align: center;
-  margin: 10px 0 15px 0; /* Spacing between the text and button */
+  margin: 10px 0 15px 0;
+  color: #cfe5dc;
 }
 
 /* header section in the main content */
@@ -50,6 +63,8 @@
   padding: 20px;
   background-color: #d4e9e2;
   border-bottom: 1px solid #1e3932;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 /* Header title (if needed) */
@@ -67,11 +82,13 @@
 .headerIcons svg {
   margin-left: 10px;
   cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
 }
 
 /* Icon hover effect */
 .headerIcons svg:hover {
   color: #00704a;
+  transform: scale(1.1);
 }
 
 /* additional header info styling (like time/date) */
@@ -91,14 +108,30 @@
   color: #1e3932;
 }
 
-/* button styling for the new chat button */
+/* new chat button styling */
 .newChatBtn {
   background-color: #00704a;
   border: none;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
   color: white;
-  border-radius: 5px;
+  border-radius: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  width: 100px;
+  text-align: center;
+}
+
+.newChatBtn:hover {
+  background-color: #4a9380;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Slight glow effect on hover for the button */
+.newChatBtn:hover {
+  box-shadow: 0 0 15px rgba(0, 112, 74, 0.7);
+  transform: translateY(-2px);
 }
 
 /* navigation section in the sidebar */
@@ -112,12 +145,12 @@
 .chatHistory {
   margin-bottom: 20px;
   padding: 10px;
-  transition: background-color 0.1s, color 0.1s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* hover effect for chat history items */
 .chatHistory:hover {
-  background-color: #4caf50;
+  background-color: #2f6d48;
   color: white;
   cursor: pointer;
 }
@@ -257,18 +290,27 @@
   align-items: center;
   padding: 10px 20px;
   cursor: pointer;
+  transition: background-color 0.3s, padding-left 0.3s;
 }
 
 /* hover effect for list items in the navigation and footer */
 .sidebarNav ul li:hover,
 .sidebarFooter ul li:hover {
   background-color: #2f6d48;
+  padding-left: 25px;
 }
 
 /* icon spacing within list items */
 .sidebarNav ul li svg,
 .sidebarFooter ul li svg {
   margin-right: 10px;
+  transition: transform 0.3s;
+}
+
+/* Slight icon zoom on hover */
+.sidebarNav ul li:hover svg,
+.sidebarFooter ul li:hover svg {
+  transform: scale(1.1);
 }
 
 /* Sidebar links */
@@ -278,6 +320,7 @@
   display: block;
   margin-bottom: 10px;
   font-size: 18px;
+  transition: color 0.3s, padding-left 0.3s;
 }
 
 /* Sidebar link hover */

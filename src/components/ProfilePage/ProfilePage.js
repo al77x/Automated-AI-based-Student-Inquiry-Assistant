@@ -18,7 +18,7 @@ const ProfilePage = () => {
             <h2>User Details</h2>
             <nav className={styles.profileNav}>
               {/* navigation buttons to switch between different profile sections */}
-              <button className={styles.active}>User Details</button>
+              <button>User Details</button>
               <button>Language & Accessibility</button>
               <button>Academic Enrolment</button>
             </nav>

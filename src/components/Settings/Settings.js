@@ -26,10 +26,7 @@ const Settings = () => {
 
           {/* Placeholder for the actual settings content */}
           <section className={styles.settingsContent}>
-            <p>
-              Here, the settings options will be displayed according to user
-              selection.
-            </p>
+            <p>setting to be added.</p>
           </section>
         </div>
       </div>

@@ -1,102 +1,121 @@
-/* resetting default margin and padding to have full height */
+/* Resetting default margin and padding to have full height */
 body,
 html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   height: 100%;
+  overflow: hidden;
 }
 
 /* Styling for the logo */
 .logo {
   width: 85px;
   height: auto;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto;
 }
 
-/* full page container for login page */
+/* Full page container for login page */
 .loginPage {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: linear-gradient(135deg, #5dc284, #1c819e);
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* center the contents inside the login container */
+/* Center the contents inside the login container */
 .loginContainer {
   text-align: center;
+  width: 100%;
+  max-width: 400px;
 }
 
-/* styling for the main heading */
+/* Styling for the main heading */
 .loginContainer h1 {
   font-size: 24px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   font-family: "ABeeZee";
+  color: white;
 }
 
-/* paragraph styling inside the login container */
+/* Paragraph styling inside the login container */
 .loginContainer p {
   margin-bottom: 20px;
+  color: white;
 }
 
-/* the main box containing the login form */
+/* The main box containing the login form */
 .loginBox {
   background: #f7f7f7;
-  padding: 20px 40px;
+  padding: 30px 40px;
   border: 1px solid #e6e6e6;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  text-align: left;
+  max-width: 100%;
 }
 
-/* subheading inside the login box */
+/* Subheading inside the login box */
 .loginBox h2 {
   margin-bottom: 20px;
-  font-size: 18px;
+  font-size: 20px;
+  color: #333;
 }
 
-/* styling for input fields */
+/* Styling for input fields */
 .inputField {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
 }
 
-/* forgot password link styling */
+.inputField:focus {
+  border-color: #5dc284;
+  outline: none;
+  box-shadow: 0 0 5px rgba(93, 194, 132, 0.5);
+}
+
+/* Forgot password link styling */
 .forgotPassword {
   display: block;
   margin: 10px 0;
   color: #6aa84f;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
 }
 
-/* highlighting part of the forgot password link */
 .forgotPassword span {
   color: #1c819e;
 }
 
-/* styling for submit button */
+/* Styling for submit button */
 .submitButton {
   width: 100%;
-  padding: 10px;
-  background-color: #6aa84f;
+  padding: 12px;
+  background-color: #5dc284;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* button hover effect */
 .submitButton:hover {
-  background-color: #5c9443;
+  background-color: #4caf50;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* register link style */
+/* Register link style */
 .registerLink {
   display: block;
   margin-bottom: 10px;
@@ -105,29 +124,11 @@ html {
   font-size: 14px;
 }
 
-/* hover effect */
 .registerLink:hover {
   text-decoration: underline;
 }
 
-/* existing account styling */
-.existingAccountText {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* existing account styling */
-.existingAccountText a {
-  color: #4caf50;
-  text-decoration: none;
-}
-
-/* existing account hover */
-.existingAccountText a:hover {
-  text-decoration: underline;
-}
-
+/* Mentor login styling */
 .mentorLogin {
   position: absolute;
   top: 10px;
@@ -135,4 +136,40 @@ html {
   font-size: 14px;
   font-weight: bold;
   color: #1e3932;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .loginBox {
+    padding: 20px;
+  }
+
+  .inputField,
+  .submitButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .mentorLogin {
+    font-size: 12px;
+  }
+}
+
+/* Ensure this class targets the correct text */
+.existingAccountText {
+  color: #1e3932 !important; /*TODO: change important*/
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.existingAccountText a {
+  color: #00704a !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.existingAccountText a:hover {
+  color: #4caf50 !important;
+  text-decoration: underline;
 }

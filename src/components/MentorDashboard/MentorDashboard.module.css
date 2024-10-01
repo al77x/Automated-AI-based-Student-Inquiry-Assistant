@@ -29,7 +29,18 @@
   background-color: #d4e9e2;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.announcements:hover,
+.discussionForums:hover,
+.notifications:hover,
+.contentUpload:hover,
+.calendar:hover,
+.systemNotifications:hover {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 
 /* announcements section */
@@ -42,6 +53,12 @@
   cursor: pointer;
   width: 100%;
   font-family: "Work Sans", sans-serif;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newAnnouncementBtn:hover {
+  background-color: #1e3932;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* discussion forums */
@@ -54,9 +71,10 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Work Sans", sans-serif;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* notifications */
+/* notification card style for calendar and system notifications */
 .notificationCard {
   background-color: #f5f5f5;
   padding: 15px;
@@ -66,6 +84,12 @@
   justify-content: space-between;
   align-items: center;
   font-family: "Work Sans", sans-serif;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.notificationCard:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
 }
 
 /* content upload */
@@ -79,6 +103,12 @@
   width: 100%;
   margin-bottom: 10px;
   font-family: "Work Sans", sans-serif;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uploadBtn:hover {
+  background-color: #1e3932;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* calendar section */
@@ -99,4 +129,43 @@
 .systemNotifications ul li {
   margin-bottom: 10px;
   font-family: "Work Sans", sans-serif;
+}
+
+.calendarNotification {
+  /* Adding the notification card to calendar section */
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.calendarNotification:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+}
+
+/* system Notifications with notification card */
+.systemNotifications {
+  background-color: #d4e9e2;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.systemNotificationCard {
+  /* Adding the notification card to system notifications */
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.systemNotificationCard:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
 }
