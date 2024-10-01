@@ -200,7 +200,7 @@ const NewChat = () => {
                   style={{
                     cursor: "pointer",
                     marginLeft: "10px",
-                    color: "#ff4d4f",
+                    color: "#d4e9e2",
                   }}
                 />
               </div>

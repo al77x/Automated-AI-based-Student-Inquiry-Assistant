@@ -26,13 +26,14 @@
 /* sidebar title styling */
 .sidebarHeader h1 {
   font-size: 24px;
+  margin: 0;
 }
 
 /* p tag in sidebarheader styling */
 .sidebarHeader p {
-  text-align: center;
-  margin: 10px 0 15px 0;
   font-size: 14px;
+  text-align: center;
+  margin: 10px 0 15px 0; /* Spacing between the text and button */
 }
 
 /* new chat button styling */

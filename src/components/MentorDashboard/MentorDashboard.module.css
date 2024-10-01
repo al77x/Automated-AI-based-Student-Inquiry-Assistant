@@ -9,7 +9,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #d4e9e2;
 }
 
 /* grid layout for the dashboard sections */
@@ -27,7 +26,7 @@
 .contentUpload,
 .calendar,
 .systemNotifications {
-  background-color: #ffffff;
+  background-color: #d4e9e2;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);

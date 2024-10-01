@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../Login/Login.module.css";
 import axios from "axios";
+import logo from "../../assets/aasia-logo.png";
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -43,7 +44,7 @@ const Register = () => {
   return (
     <div className={styles.loginPage}>
       <div className={styles.loginContainer}>
-        <h1>AASIA</h1>
+        <img src={logo} alt="AASIA Logo" className={styles.logo} />
         <p>Register for an account</p>
         <div className={styles.loginBox}>
           <h2>Register for an account</h2>

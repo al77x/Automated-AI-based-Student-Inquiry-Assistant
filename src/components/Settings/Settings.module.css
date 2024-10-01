@@ -1,0 +1,59 @@
+/* container for the entire settings page, using flexbox to align elements */
+.settingsPage {
+  display: flex;
+  height: 100vh;
+}
+
+/* main content area styling */
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* settings container that holds all settings-related content */
+.settingsContainer {
+  flex: 1;
+  padding: 20px;
+}
+
+/* header section for settings details, including the title and navigation */
+.settingsDetailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* title styling for the settings details section */
+.settingsDetailsHeader h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #1e3932;
+}
+
+/* navigation buttons within the settings section */
+.settingsNav button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #00704a;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+/* active state styling for the navigation buttons */
+.settingsNav .active {
+  background-color: #00704a;
+  color: white;
+}
+
+/* container for user settings content */
+.settingsContent {
+  background-color: #d4e9e2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
