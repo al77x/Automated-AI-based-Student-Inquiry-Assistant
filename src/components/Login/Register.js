@@ -9,18 +9,21 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [popupMessage, setPopupMessage] = useState(""); // Custom popup message
+  const [showPopup, setShowPopup] = useState(false); // Toggle popup visibility
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setPopupMessage("Passwords do not match!"); // Password mismatch
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000); // Hide popup after 3 seconds
       return;
     }
 
     try {
-      // send the registration data to the Flask backend
       const response = await axios.post("http://localhost:5000/register", {
         fullName: fullName,
         email: email,
@@ -28,16 +31,21 @@ const Register = () => {
       });
 
       if (response.status === 200) {
-        alert("Account registered successfully!");
-        navigate("/login");
+        setPopupMessage("Account registered successfully!"); // Success message
+        setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+          navigate("/login"); // Redirect after 3 seconds
+        }, 3000);
       }
     } catch (error) {
-      console.error("Error registering user:", error);
-      alert(
+      setPopupMessage(
         error.response
           ? error.response.data.message
           : "Registration failed! Please try again."
       );
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000); // Auto-hide after 3 seconds
     }
   };
 
@@ -90,6 +98,21 @@ const Register = () => {
           </p>
         </div>
       </div>
+
+      {/* Popup Component */}
+      {showPopup && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <p>{popupMessage}</p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className={styles.popupButton}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -7,34 +7,43 @@ import logo from "../../assets/aasia-logo.png";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [popupMessage, setPopupMessage] = useState(""); // State for custom popup message
+  const [showPopup, setShowPopup] = useState(false); // State for controlling popup visibility
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      // Send the login data to the Flask backend
       const response = await axios.post("http://localhost:5000/login", {
         email: email,
         password: password,
       });
 
       if (response.status === 200) {
-        alert("Login successful!");
-        navigate("/dashboard"); // Redirect to dashboard after successful login
+        setPopupMessage("Login successful!"); // Set success message
+        setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+          navigate("/dashboard");
+        }, 3000); // 3-second delay before redirect
       }
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {
-          alert("Login failed: Invalid credentials!");
+          setPopupMessage("Login failed: Invalid credentials!");
         } else if (error.response.status === 404) {
-          alert("Login failed: Account not found!");
+          setPopupMessage("Login failed: Account not found!");
         } else {
-          alert("Login failed: Server error.");
+          setPopupMessage("Login failed: Server error.");
         }
       } else {
-        alert("Login failed: Network error.");
+        setPopupMessage("Login failed: Network error.");
       }
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false); // Hide the popup after 3 seconds
+      }, 3000); // 3-second delay before hiding the popup
     }
   };
 
@@ -62,7 +71,6 @@ const Login = () => {
               required
               className={styles.inputField}
             />
-            {/* direct to register or forgot password page */}
             <a href="/register" className={styles.registerLink}>
               Register as a new user{" "}
             </a>
@@ -78,6 +86,21 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+      {/* Popup Component */}
+      {showPopup && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <p>{popupMessage}</p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className={styles.popupButton}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

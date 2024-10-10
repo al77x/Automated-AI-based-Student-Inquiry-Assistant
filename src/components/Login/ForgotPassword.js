@@ -7,13 +7,14 @@ import logo from "../../assets/aasia-logo.png";
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [popupMessage, setPopupMessage] = useState(""); // Custom popup message
+  const [showPopup, setShowPopup] = useState(false); // Toggle popup visibility
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      // send the email and new password to the backend to reset the password
       const response = await axios.post(
         "http://localhost:5000/forgot-password",
         {
@@ -23,15 +24,21 @@ const ForgotPassword = () => {
       );
 
       if (response.status === 200) {
-        alert("Password updated successfully!");
-        navigate("/login"); // redirect to login page after success
+        setPopupMessage("Password updated successfully!"); // Success message
+        setShowPopup(true);
+        setTimeout(() => {
+          setShowPopup(false);
+          navigate("/login"); // Redirect after 3 seconds
+        }, 3000);
       }
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        alert("Account not found!");
+        setPopupMessage("Account not found!");
       } else {
-        alert("Password reset failed! Please try again.");
+        setPopupMessage("Password reset failed! Please try again.");
       }
+      setShowPopup(true);
+      setTimeout(() => setShowPopup(false), 3000); // Auto-hide after 3 seconds
     }
   };
 
@@ -68,6 +75,21 @@ const ForgotPassword = () => {
           </p>
         </div>
       </div>
+
+      {/* Popup Component */}
+      {showPopup && (
+        <div className={styles.popup}>
+          <div className={styles.popupContent}>
+            <p>{popupMessage}</p>
+            <button
+              onClick={() => setShowPopup(false)}
+              className={styles.popupButton}
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
