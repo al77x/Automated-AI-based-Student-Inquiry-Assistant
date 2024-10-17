@@ -32,9 +32,17 @@ The objective of the project is to develop an AI-based Student Inquiry Assistant
 <li>Feedback Collection</li>
 <li>FAQ Handling</li>
 <li>Analytics and Reporting</li>
+<li>User Role Management</li>
+<li>Customizable UI</li>
+<li>Scalability Support</li>
+<li>Secure Security and Privacy</li>
+<li>Cross-Platform Compatibility</li>
+<li>Search Features</li>
+<li>Continuous Learning from Interactions</li>
+<li>Data Documentation</li>
+ 
 </ol>
 
-Continuously learns and improves from interactions to provide better responses over time.
 ## Documentation
  ```python
 def hello_world():
@@ -105,4 +113,3 @@ Alessandrae Jan Abelita -
 
 </p>
 
-## License
