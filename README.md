@@ -86,11 +86,11 @@ hello_world()
 
 ## Team
 <ul>
-<li>Alessandrae Jan Abelita</li>
-<li>Botong Chen</li>
-<li>Andrew Jiahua Liu</li>
-<li>Joshua Winson Jacob</li>
-<li>Adreesh Joarder</li>
+<li>Alessandrae Jan Abelita (20125029)</li>
+<li>Botong Chen (20112241)</li>
+<li>Andrew Jiahua Liu (21149829)</li>
+<li>Joshua Winson Jacob (19094217)</li>
+<li>Adreesh Joarder (21124994)</li>
 </ul>
 
 ## Contact
