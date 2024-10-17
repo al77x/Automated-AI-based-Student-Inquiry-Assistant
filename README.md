@@ -1,5 +1,22 @@
 # Automated-AI-based-Student-Inquiry-Assistant
-Link To Demo:
+## Preview (of what we have completed so far)
+#### Register an account
+![register-account](https://github.com/user-attachments/assets/e76ae76f-b7d3-4199-9db8-a936362c688e)
+#### Login
+![login-page](https://github.com/user-attachments/assets/6e930bb2-871d-4afb-a447-afe3667b5fcd)
+#### Reset Password
+![reset-password](https://github.com/user-attachments/assets/303b4493-b30f-4474-a373-4106ec0c664b)
+#### Dashboard
+![dashboard-page](https://github.com/user-attachments/assets/495237ea-371c-4b26-962d-d95911c2318f)
+#### Chatbot
+![chatbot-page](https://github.com/user-attachments/assets/6cc79c01-0e77-4d54-a4a7-0354d800138c)
+#### Mentor Dashboard
+![mentor-dashboard](https://github.com/user-attachments/assets/d3ed9c77-25e4-4ce5-8a7b-9369eb6cfefc)
+#### User Settings
+![user-details](https://github.com/user-attachments/assets/51cb1200-b69a-4560-990f-48436222aa6f)
+#### Help-Center
+![help-center](https://github.com/user-attachments/assets/8f3b82c3-64ad-4cf6-86b6-36eb6d5a42d9)
+
 ## About Project 
 The objective of the project is to develop an AI-based Student Inquiry Assistant to assist in managing reoccurring student enquiries in their academics and improve the quality of academic responses through the usage of artificial intelligence. The project aims to deliver a web-based application that incorporates AI to help lectures handle student enquiries effectively and a user-friendly interface for student inquiry for both students and lecturers to use and the usage of AI-based technologies. The following are the project’s main goals: 
 
