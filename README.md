@@ -37,12 +37,14 @@ hello_world()
 
 ## Contact
 <p align="left">
-Andrew Jiahua Liu
+Alessandrae Jan Abelita 
+ Team Leader/Developer
 <!-- HTML Button -->
 <p align="left">
-  <a href="mailto:mzy4040@autuni.ac.nz">
+  <a href="mailto:mss9953@autuni.ac.nz">
     <img src="https://img.shields.io/badge/Email-Contact%20Me-blue?style=for-the-badge&logo=microsoft-outlook&logoColor=white" alt="Email Me">
   </a>
+
 </p>
 
 ## License
