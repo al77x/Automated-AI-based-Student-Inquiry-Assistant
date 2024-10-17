@@ -26,7 +26,7 @@ def hello_world():
 hello_world()
 ```
 ## To-Do
-<li>**Frontend Development**</li>
+**Frontend Development**
 <li>- For Future Developers</li>
 <li>Refine current UI based on Figma Components.</li>
 <li>Implement responsive design for mobile and tablet support.</li>
@@ -34,7 +34,12 @@ hello_world()
 <li>Implement user notifications for successful actions</li>
 <li>Add error handling and user-friendly error messages for failed actions.</li> 
 <li>Conduct cross-browser testing</li>
-<li>Backend Development</li>
+
+**Backend Development**
+<li>Create a database schema to handle queries, responses, and user data.</li>
+<li>Optimize Elasticsearch setup for faster search query processing.</li>
+<li>Add real-time data archiving and retrieval capabilities.</li>
+<li>Implement functionalities (Create, Read, Update, Delete) for FAQs.</li>
 
 ## Team
 <ul>
