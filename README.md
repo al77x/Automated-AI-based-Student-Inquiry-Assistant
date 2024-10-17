@@ -27,7 +27,7 @@ hello_world()
 ```
 ## To-Do
 <li>Frontend Development</li>
-<li>#For Future Developers</li> 
+# For Future Developers
 <li>Refine current UI based on Figma Components.</li>
 <li>Implement responsive design for mobile and tablet support.</li>
 <li>Add loading indicators for query results.</li>
