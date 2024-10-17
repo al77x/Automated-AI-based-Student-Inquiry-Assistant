@@ -1,4 +1,16 @@
 # Automated-AI-based-Student-Inquiry-Assistant
+## About Project 
+The objective of the project is to develop an AI-based Student Inquiry Assistant to assist in managing reoccurring student enquiries in their academics and improve the quality of academic responses through the usage of artificial intelligence. The project aims to deliver a web-based application that incorporates AI to help lectures handle student enquiries effectively and a user-friendly interface for student inquiry for both students and lecturers to use and the usage of AI-based technologies. The following are the project’s main goals: 
+
+- Text classification technologies – Natural Learning Processing (NLP) and Elasticsearch to accurately understand students’ inquiries. There would also be a Feedback Mechanism for students’ insights on the system to improve it and to solve unresolved queries that need lectures’ manual support.  
+- Integration with LMS (Learning Management System) and databases – We can connect it to the university’s LMS which is Canvas, to allow the AI system to access course materials and resources for its responses to students. There will be both a front-end and back-end infrastructure that will support the AI model in the storage of data and handling of the database.  
+- System Architecture Documentation – Documentation of architecture, system design decisions and drafts with a guide and detailed manuals of usage of the system for future needs for maintenance or development.  
+
+## Current Progress
+The current phase of the project focuses on the frontend design to show basic functionalities and the user interface designs, as requested by the client.
+<li>We have currently done the Frontend Design and created a User Interface made by HTML/CSS, JavaScript, and React. We have also used Figma to create a framework of the design for the Website.</li>
+<li>We have also connected the OpenAI API to to provide basic chatbot functionality for answering student queries and added a user authentication system for login purposes using SQLite</li>
+
 ## Preview (of what we have completed so far)
 #### Register an account
 ![register-account](https://github.com/user-attachments/assets/e76ae76f-b7d3-4199-9db8-a936362c688e)
@@ -16,20 +28,6 @@
 ![user-details](https://github.com/user-attachments/assets/51cb1200-b69a-4560-990f-48436222aa6f)
 #### Help-Center
 ![help-center](https://github.com/user-attachments/assets/8f3b82c3-64ad-4cf6-86b6-36eb6d5a42d9)
-
-## About Project 
-The objective of the project is to develop an AI-based Student Inquiry Assistant to assist in managing reoccurring student enquiries in their academics and improve the quality of academic responses through the usage of artificial intelligence. The project aims to deliver a web-based application that incorporates AI to help lectures handle student enquiries effectively and a user-friendly interface for student inquiry for both students and lecturers to use and the usage of AI-based technologies. The following are the project’s main goals: 
-
-- Text classification technologies – Natural Learning Processing (NLP) and Elasticsearch to accurately understand students’ inquiries. There would also be a Feedback Mechanism for students’ insights on the system to improve it and to solve unresolved queries that need lectures’ manual support.  
-- Integration with LMS (Learning Management System) and databases – We can connect it to the university’s LMS which is Canvas, to allow the AI system to access course materials and resources for its responses to students. There will be both a front-end and back-end infrastructure that will support the AI model in the storage of data and handling of the database.  
-- System Architecture Documentation – Documentation of architecture, system design decisions and drafts with a guide and detailed manuals of usage of the system for future needs for maintenance or development.  
-
-## Current Progress
-The current phase of the project focuses on the frontend design to show basic functionalities and the user interface designs, as requested by the client.
-<li>We have currently done the Frontend Design and created a User Interface made by HTML/CSS, JavaScript, and React. We have also used Figma to create a framework of the design for the Website.</li>
-<li>We have also connected the OpenAI API to to provide basic chatbot functionality for answering student queries and added a user authentication system for login purposes using SQLite</li>
-
-
 
 ## Features 
 <ol>
@@ -51,13 +49,30 @@ The current phase of the project focuses on the frontend design to show basic fu
  
 </ol>
 
-## Documentation
- ```python
-def hello_world():
-    print("Hello, World!")
+## Setup
+# Automated AI-based Student Inquiry Assistant (AASIA) Project
 
-hello_world()
+## Setup
+
+### Prerequisites
+
+- **Node.js**: Ensure Node.js is installed. You can download it from [here](https://nodejs.org/).
+- **Python**: Make sure Python is installed. You can get it from [here](https://www.python.org/downloads/).
+
+### 1. Install Node.js dependencies
+To install all required dependencies for the project, run:
+```bash
+# Once the dependencies are installed, start the development server using:
+npm install
+npm start
+
+# To login and store user data, execute:
+python login.py
+
+# To run the chatbot, use the following command:
+python app.py
 ```
+
 ## To-Do
 **Frontend Development**
 
