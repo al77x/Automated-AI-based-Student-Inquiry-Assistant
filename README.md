@@ -59,12 +59,14 @@ hello_world()
 <li>Optimize Elasticsearch setup for faster search query processing.</li>
 <li>Add real-time data archiving and retrieval capabilities.</li>
 <li>Implement functionalities (Create, Read, Update, Delete) for FAQs.</li>
+<br /> 
 
 **AI & Natural Language Processing (NLP) Integration**
 
 <li>Implement AI model</li>
 <li>Fine-tune the AI model with pre-existing data</li>
 <li>Adjust AI model based on accuracy and relevance of generated answers after testing.</li>
+<br /> 
 
 **Security and Authentication**
 
@@ -72,6 +74,7 @@ hello_world()
 <li>Implement secure authentication.</li>
 <li>Add encryption for data</li>
 <li>Conduct penetration testing and vulnerability scans.</li>
+<br /> 
 
 **Feature Enhancements**
 
@@ -79,6 +82,7 @@ hello_world()
 <li>Create a dashboard for lecturers to monitor student inquiries and track common questions.</li>
 <li>Add analytics to identify trends and student needs.</li>
 <li>Create feedback forms or mechanisms within the app for improvements.</li>
+<br /> 
 
 ## Team
 <ul>
