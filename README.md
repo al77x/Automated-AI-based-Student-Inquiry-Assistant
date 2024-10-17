@@ -50,9 +50,6 @@ The current phase of the project focuses on the frontend design to show basic fu
 </ol>
 
 ## Setup
-# Automated AI-based Student Inquiry Assistant (AASIA) Project
-
-## Setup
 
 ### Prerequisites
 
