@@ -52,6 +52,7 @@ hello_world()
 <li>Add error handling and user-friendly error messages for failed actions.</li> 
 <li>Conduct cross-browser testing</li>
 <br /> 
+
 **Backend Development**
 
 <li>Create a database schema to handle queries, responses, and user data.</li>
