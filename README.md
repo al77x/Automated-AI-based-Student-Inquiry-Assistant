@@ -37,7 +37,7 @@ hello_world()
 
 ## Contact
 <p align="left">
-Alessandrae Jan Abelita 
+Alessandrae Jan Abelita -  
  Team Leader/Developer
 <!-- HTML Button -->
 <p align="left">
