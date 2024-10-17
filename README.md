@@ -44,7 +44,7 @@ hello_world()
 ```
 ## To-Do
 **Frontend Development**
-<li>- For Future Developers</li>
+
 <li>Refine current UI based on Figma Components.</li>
 <li>Implement responsive design for mobile and tablet support.</li>
 <li>Add loading indicators for query results.</li>
@@ -53,10 +53,31 @@ hello_world()
 <li>Conduct cross-browser testing</li>
 
 **Backend Development**
+
 <li>Create a database schema to handle queries, responses, and user data.</li>
 <li>Optimize Elasticsearch setup for faster search query processing.</li>
 <li>Add real-time data archiving and retrieval capabilities.</li>
 <li>Implement functionalities (Create, Read, Update, Delete) for FAQs.</li>
+
+**AI & Natural Language Processing (NLP) Integration**
+
+<li>Implement AI model</li>
+<li>Fine-tune the AI model with pre-existing data</li>
+<li>Adjust AI model based on accuracy and relevance of generated answers after testing.</li>
+
+**Security and Authentication**
+
+<li>Expand the login system to include role-based access control</li>
+<li>Implement secure authentication.</li>
+<li>Add encryption for data</li>
+<li>Conduct penetration testing and vulnerability scans.</li>
+
+**Feature Enhancements**
+
+<li>Implement API integrations with LMS platforms (Canvas) for syncing student data.</li>
+<li>Create a dashboard for lecturers to monitor student inquiries and track common questions.</li>
+<li>Add analytics to identify trends and student needs.</li>
+<li>Create feedback forms or mechanisms within the app for improvements.</li>
 
 ## Team
 <ul>
